@@ -181,7 +181,7 @@ ul {
 .header-logo img {
   width: 150px;
   background: transparent;
-  margin-left: -25px;
+  margin-left: -20px;
   mix-blend-mode: inherit;
 }
 .header-manu nav ul {
@@ -659,8 +659,8 @@ ul {
 }
 .logo img {
   width: 150px;
-  margin-top: -10px;
-  margin-left: -28px;
+  margin-top: -22px;
+  margin-left: -23px;
 }
 .content-column span {
   color: #666666;
@@ -1094,7 +1094,7 @@ ul {
   .footer-top::after {
     content: "";
     position: absolute;
-    top: 35.5%;
+    top: 38%;
     left: 0;
     width: 100%;
     height: 1px;
@@ -1103,7 +1103,7 @@ ul {
   .footer-top::before {
     content: "";
     position: absolute;
-    bottom: 34.5%;
+    bottom: 33.5%;
     left: 0;
     width: 100%;
     height: 1px;
