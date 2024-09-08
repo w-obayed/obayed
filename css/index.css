@@ -182,6 +182,7 @@ ul {
   width: 150px;
   background: transparent;
   margin-left: -25px;
+  mix-blend-mode: inherit;
 }
 .header-manu nav ul {
   padding: 15px 0px;
