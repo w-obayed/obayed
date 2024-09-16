@@ -333,14 +333,30 @@ ul {
 
 /* --- another service area css --- */
 .another-service-section {
-  background: url("../image/Untitled\ design.png") no-repeat center center/cover;
-  padding: 50px 0px;
+  background: url("../image/o.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding: 100px 0px;
+  position: relative;
+  z-index: 0;
+}
+.another-service-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(rgba(0, 0, 0, 0.7) 0 100%);
 }
 .s-content-area {
   justify-content: space-between;
 }
 .service-area-left {
   width: 39%;
+  z-index: 2;
 }
 .service-area-left .img-bg {
   transform: skewX(4.5deg);
@@ -352,6 +368,7 @@ ul {
 .service-area-right {
   width: 50%;
   justify-content: center;
+  z-index: 2;
 }
 .location-text {
   justify-content: space-between;
