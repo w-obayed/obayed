@@ -443,11 +443,43 @@ ul {
   flex: 1;
   height: 70px;
 }
-.swiper-slide img {
+.image-container img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.image-container {
+  position: relative;
+}
+.hover-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  padding: 10px 20px;
+  background-color: #000;
+  text-decoration: none;
+  transition: background-color 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  visibility: hidden;
+  color: var(--white-color);
+  display: block;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+.image-container:hover .hover-button {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-50%) scale(1.1);
+}
+.hover-button:hover {
+  background-color: #000;
 }
 .swiper-pagination-bullet-active {
   background-color: #ed0b17;
@@ -634,7 +666,7 @@ ul {
 
 /* --- contact section css --- */
 .contact-section {
-  background: url("../image/Rectangle\ 4343.png") no-repeat center center/cover;
+  background: url("../image/home-banner1.jpg") no-repeat center center/cover;
   height: 50vh;
   justify-content: end;
 }
@@ -1055,9 +1087,8 @@ ul {
   }
   /* --- contact section css --- */
   .contact-section {
-    background: url("../image/Rectangle\ 4343-1.png") no-repeat center
-      center/cover;
-    height: 60vh;
+    background: url("../image/latop.jpg") no-repeat center center/cover;
+    height: 80vh;
     justify-content: end;
     margin-bottom: 100px;
   }
