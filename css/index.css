@@ -206,8 +206,8 @@ ul {
 
 /* --- banner section css --- */
 .banner-section {
-  background: url("../image/home-banner1.jpg") no-repeat center center/cover;
-  height: 60vh;
+  background: url("../image/banner-2.jpg") no-repeat center center/cover;
+  height: 65vh;
   justify-content: center;
   width: 100%;
   position: relative;
@@ -222,8 +222,8 @@ ul {
   z-index: 1;
   background: linear-gradient(
     110deg,
-    rgba(0, 0, 0, 0.85) 0 65%,
-    rgba(0, 0, 0, 0.6) 0 35%
+    rgba(0, 0, 0, 0.7) 0 65%,
+    rgba(0, 0, 0, 0.4) 0 35%
   );
 }
 .banner-text {
