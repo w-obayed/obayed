@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Study: $42k Profit Cold Email Architecture & Outbound System | OBAYED</title>
+    <meta
+      name="description"
+      content="Discover how OBAYED engineered an AI-driven cold email infrastructure generating $42k+ net profit in 6 months for a sales agency. Read full architecture breakdown."
+    />
+    <meta
+      name="keywords"
+      content="cold email case study, outbound sales architecture, Zapmail, Clay enrichment, Instantly automation, lead generation case study"
+    />
+    <meta name="author" content="MD. ABU OBAYEDA" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://obayed.com/cold-email-work.html" />
+
+    <!-- Resource Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://obayed.com/cold-email-work.html" />
+    <meta property="og:site_name" content="OBAYED" />
+    <meta property="og:title" content="Case Study: $42k Profit Cold Email Architecture & Outbound System | OBAYED" />
+    <meta
+      property="og:description"
+      content="We architected a complete, AI-driven cold email infrastructure that generated over $42k in net profit for a sales agency in just six months."
+    />
+    <meta property="og:image" content="https://obayed.com/image/Cold_Email_Setup_Sales_Agency.pdf.jpg" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@AbuObeyada" />
+    <meta name="twitter:title" content="Case Study: $42k Profit Cold Email Architecture & Outbound System | OBAYED" />
+    <meta
+      name="twitter:description"
+      content="We architected a complete, AI-driven cold email infrastructure that generated over $42k in net profit for a sales agency in just six months."
+    />
+    <meta name="twitter:image" content="https://obayed.com/image/Cold_Email_Setup_Sales_Agency.pdf.jpg" />
+    
+    <!-- font-awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <!-- swiper css -->
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
+    <!-- css link -->
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/cold-email-work.css" />
+  </head>
+  <body>
+    <!--- Header Topbar & Navigation --->
+    <header role="banner">
+      <section class="header-section">
+        <div class="header-top">
+          <div class="container">
+            <div class="top-area d-flex-r">
+              <div class="header-top-bar d-flex-r">
+                <div class="top-bar-left-area">
+                  <p class="sm-text w-text">
+                    Call Now For A Free Service: <a href="tel:01846360929" class="w-text" style="text-decoration: underline;">01846360929</a>
+                  </p>
+                </div>
+                <div class="top-bar-right-area">
+                  <p class="sm-text w-text">Follow Us</p>
+                  <div class="social-icon d-flex-r">
+                    <a href="https://www.facebook.com/obayed574/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/@obayed-w" target="_blank" rel="noopener noreferrer" aria-label="Watch us on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                    <a href="https://x.com/AbuObeyada" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/obayed574/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header-main">
+          <div class="container">
+            <div class="header-area d-flex-r">
+              <div class="header-logo">
+                <a href="./index.html" aria-label="Obayed Homepage">
+                  <img src="./image/logo-o.png" alt="OBAYED Agency Logo" width="160" height="40" decoding="async" />
+                </a>
+              </div>
+              <div class="header-manu">
+                <nav class="nav" role="navigation" aria-label="Main Navigation">
+                  <ul class="d-flex-r nav-links" id="main-nav">
+                    <li><a class="sm-text b-color" href="./service.html">Services</a></li>
+                    <li><a class="sm-text b-color" href="./obayed-crm.html">obayedCRM</a></li>
+                    <li><a class="sm-text b-color" href="./index.html#codes">Codes</a></li>
+                    <li><a class="sm-text b-color text-primary" href="./cold-email-work.html">Case Study</a></li>
+                    <li class="none">
+                      <a class="btn btn-w" href="tel:01846360929">Call Us Now</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <button class="hamburger-menu" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="main-nav">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <!-- Breadcrumb Section -->
+    <nav class="case-study-breadcrumb" aria-label="Breadcrumb Navigation">
+      <div class="container">
+        <div class="breadcrumb-list">
+          <a href="./index.html"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
+          <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></span>
+          <a href="./index.html#codes">Our Work</a>
+          <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></span>
+          <span class="active-crumb">Cold Email System Case Study</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main role="main">
+      <!-- Hero Section -->
+      <section class="case-study-hero" aria-label="Case Study Overview">
+        <div class="container">
+          <div class="hero-badge-group">
+            <span class="badge-tag"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Enterprise Case Study</span>
+            <span class="author-tag"><i class="fa-solid fa-user-check" aria-hidden="true"></i> Author: MD. ABU OBAYEDA</span>
+          </div>
+          <h1 class="lg-text hero-headline">Turn Automated Outreach Into Predictable Revenue.</h1>
+          <h2 class="hero-subheadline">
+            We architected a complete, AI-driven cold email infrastructure that generated over $42k in net profit for a sales agency in just six months.
+          </h2>
+          <p class="hero-description">
+            We combine advanced system design with modern AI tools to build high-performance outbound sales engines. This page breaks down the exact infrastructure we deployed and the month-over-month results it delivered.
+          </p>
+
+          <div class="hero-cta-group d-flex-r">
+            <a href="https://calendly.com/w-obayed/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-r">
+              Schedule Meeting
+            </a>
+            <a href="tel:01846360929" class="btn btn-b-w">
+              Call 01846360929
+            </a>
+          </div>
+
+          <!-- Highlight Stats Banner -->
+          <div class="hero-stats-banner">
+            <div class="stat-box">
+              <span class="stat-num">24,000</span>
+              <span class="stat-lbl">Total Emails Sent</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num highlight">5%</span>
+              <span class="stat-lbl">Average Reply Rate</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num highlight">$42k - $58k</span>
+              <span class="stat-lbl">Net Profit Yield</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Phase 1: Deep System Architecture Setup -->
+      <section class="case-study-section" aria-label="Phase 1 System Architecture Setup">
+        <div class="container">
+          <div class="section-head-block">
+            <span class="section-tag"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Architecture Setup</span>
+            <h2 class="lg-text section-head-title">Phase 1: Deep System Architecture Setup</h2>
+            <p class="section-head-subtitle">
+              Eliminating Deliverability Risks Before a Single Message is Dispatched.
+            </p>
+          </div>
+
+          <!-- Infrastructure Layout Chart Box -->
+          <div class="image-showcase-box">
+            <div class="box-header">
+              <div class="box-title">
+                <i class="fa-solid fa-network-wired" aria-hidden="true"></i>
+                <span>Technical Infrastructure Layout Chart</span>
+              </div>
+            </div>
+            <img
+              src="./image/Cold_Email_Setup_Sales_Agency.pdf.jpg"
+              alt="Complete technical infrastructure layout chart showing Zapmail, Clay, Instantly, and CRM integration points."
+              class="showcase-img"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <!-- Tool Breakdown Cards -->
+          <div class="tool-cards-grid">
+            <!-- Zapmail.ai -->
+            <article class="tool-item-card">
+              <div class="tool-item-header">
+                <div class="tool-title-group">
+                  <div class="tool-icon-wrap">
+                    <i class="fa-solid fa-server" aria-hidden="true"></i>
+                  </div>
+                  <h3 class="md-text">Zapmail.ai</h3>
+                </div>
+                <span class="price-tag">$39/mo</span>
+              </div>
+              <p class="sm-text b-w-text">
+                Decentralized custom domain generation, automated workspace creation, and core SPF/DKIM/DMARC server records alignment.
+              </p>
+            </article>
+
+            <!-- Clay.com -->
+            <article class="tool-item-card">
+              <div class="tool-item-header">
+                <div class="tool-title-group">
+                  <div class="tool-icon-wrap">
+                    <i class="fa-solid fa-database" aria-hidden="true"></i>
+                  </div>
+                  <h3 class="md-text">Clay.com</h3>
+                </div>
+                <span class="price-tag">$149/mo</span>
+              </div>
+              <p class="sm-text b-w-text">
+                Programmatic real-time lead sourcing, waterfall enrichment API logic, data sanitization, and automated list compilation.
+              </p>
+            </article>
+
+            <!-- Instantly.ai -->
+            <article class="tool-item-card">
+              <div class="tool-item-header">
+                <div class="tool-title-group">
+                  <div class="tool-icon-wrap">
+                    <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                  </div>
+                  <h3 class="md-text">Instantly.ai</h3>
+                </div>
+                <span class="price-tag">$47/mo</span>
+              </div>
+              <p class="sm-text b-w-text">
+                Outbound campaign automation, conversational sequence building, warm-up pools management, multi-inbox rotation, and webhook routing.
+              </p>
+            </article>
+
+            <!-- CRM Integration -->
+            <article class="tool-item-card">
+              <div class="tool-item-header">
+                <div class="tool-title-group">
+                  <div class="tool-icon-wrap">
+                    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+                  </div>
+                  <h3 class="md-text">CRM Integration</h3>
+                </div>
+                <div class="platform-pills">
+                  <span class="platform-pill-badge">HubSpot</span>
+                  <span class="platform-pill-badge">Pipedrive</span>
+                </div>
+              </div>
+              <p class="sm-text b-w-text">
+                Instant webhook triggers mapping affirmative email reply parameters to active sales pipeline notification components.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Phase 2: The 6-Month Scale & Progression Analysis -->
+      <section class="case-study-section bg-white" aria-label="Phase 2 Performance Analysis">
+        <div class="container">
+          <div class="section-head-block">
+            <span class="section-tag"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Performance Analysis</span>
+            <h2 class="lg-text section-head-title">Phase 2: The 6-Month Scale & Progression Analysis</h2>
+            <p class="section-head-subtitle">
+              From 1,500 Dispatches to Consistent Double-Digit Client Acquisitions.
+            </p>
+          </div>
+
+          <!-- 6-Month Scale Graph Showcase Box -->
+          <div class="image-showcase-box">
+            <div class="box-header">
+              <div class="box-title">
+                <i class="fa-solid fa-chart-area" aria-hidden="true"></i>
+                <span>6-Month Scale & Progression Graph</span>
+              </div>
+            </div>
+            <img
+              src="./image/6_Month_Cold_Email_Progression.pdf.jpg"
+              alt="Graph outlining 6-month scale metrics demonstrating scaling from 1.5k emails up to 5k emails along with cost profit summaries."
+              class="showcase-img"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <!-- Verified Data Points Grid -->
+          <div class="analytics-metrics-grid">
+            <div class="analytics-card">
+              <div class="icon-circle">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              </div>
+              <div class="value-num">24,000</div>
+              <div class="label-text">Total Emails Sent</div>
+            </div>
+
+            <div class="analytics-card">
+              <div class="icon-circle">
+                <i class="fa-solid fa-reply-all" aria-hidden="true"></i>
+              </div>
+              <div class="value-num red-accent">5%</div>
+              <div class="label-text">Average Reply Rate</div>
+            </div>
+
+            <div class="analytics-card">
+              <div class="icon-circle">
+                <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+              </div>
+              <div class="value-num">45+</div>
+              <div class="label-text">Total Meetings Booked</div>
+            </div>
+
+            <div class="analytics-card">
+              <div class="icon-circle">
+                <i class="fa-solid fa-user-check" aria-hidden="true"></i>
+              </div>
+              <div class="value-num">22+</div>
+              <div class="label-text">Total Clients Closed</div>
+            </div>
+
+            <div class="analytics-card">
+              <div class="icon-circle">
+                <i class="fa-solid fa-wallet" aria-hidden="true"></i>
+              </div>
+              <div class="value-num">$1,410</div>
+              <div class="label-text">Total Infrastructure Cost</div>
+            </div>
+
+            <div class="analytics-card">
+              <div class="icon-circle">
+                <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i>
+              </div>
+              <div class="value-num red-accent">$42k - $58k</div>
+              <div class="label-text">Net Profit Yield</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Banner Section -->
+      <section class="contact-section d-flex-c" aria-label="Contact Us & Schedule Call">
+        <div class="container d-flex-r center-content p-0">
+          <div class="red-bg">
+            <div class="contact-area d-flex-r">
+              <div class="contact-text">
+                <h2 class="md-text w-text">Want This Intelligent Outbound Engine Built For Your Agency?</h2>
+                <p class="sm-text">
+                  Stop manual prospecting. Deploy high-margin, scalable AI & MERN systems designed to convert.
+                </p>
+              </div>
+              <div class="contact-button">
+                <a href="https://calendly.com/w-obayed/new-meeting" class="btn btn-r" target="_blank" rel="noopener noreferrer">Schedule A Meeting</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+      <section class="footer-section">
+        <div class="footer-top p-my border">
+          <div class="container">
+            <div class="footer-content">
+              <div class="border-x none"></div>
+              <div class="content-column footer-logo logo">
+                <img src="./image/logo-o.png" alt="OBAYED Agency Logo" width="160" height="40" loading="lazy" decoding="async" />
+                <p class="sm-text b-w-text f-text-p">
+                  Delivering tailored, business-oriented web solutions with a focus on innovation and efficiency. We build high-impact digital products designed to streamline workflows and scale operations.
+                </p>
+              </div>
+              <div class="content-column">
+                <h3 class="md-text">Services</h3>
+                <ul>
+                  <li>
+                    <a class="sm-text b-w-text" href="./service.html#custom-ai">Custom AI Agents & Automation</a>
+                  </li>
+                  <li>
+                    <a class="sm-text b-w-text" href="./service.html#full-stack">Web Application Development</a>
+                  </li>
+                  <li><a class="sm-text b-w-text" href="./service.html#full-stack">Mobile Application Development</a></li>
+                  <li>
+                    <a class="sm-text b-w-text" href="./cold-email-work.html">Cold Email Infrastructure</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="content-column contact-info">
+                <h3 class="md-text">Contact Us</h3>
+                <p class="sm-text b-w-text">
+                  <a class="d-flex-r" href="tel:01846360929" aria-label="Call us at 01846360929"
+                    ><img src="./image/Icon (2).svg" alt="Phone Icon" width="18" height="18" decoding="async" /><span
+                      >01846360929</span
+                    ></a
+                  >
+                </p>
+                <p class="sm-text b-w-text">
+                  <a href="mailto:abuobeyada574@gmail.com" aria-label="Email us at abuobeyada574@gmail.com"
+                    ><img src="./image/Icon (1).svg" alt="Email Icon" width="18" height="18" decoding="async" /><span
+                      >abuobeyada574@gmail.com</span
+                    ></a
+                  >
+                </p>
+                <p class="sm-text b-w-text">
+                  <a href="#" aria-label="Location Dhaka Bangladesh"
+                    ><img src="./image/Icon.svg" alt="Location Icon" width="18" height="18" decoding="async" /><span
+                      >Dhaka, Bangladesh</span
+                    ></a
+                  >
+                </p>
+
+                <div class="social-icons d-flex-r">
+                  <a class="facebook-icon" href="https://www.facebook.com/obayed574/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile"
+                    ><img src="./image/f.svg" alt="Facebook Icon" width="18" height="18" decoding="async"
+                  /></a>
+                  <a class="instagram-icon" href="https://www.instagram.com/obayed574/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile"
+                    ><img src="./image/instagram.svg" alt="Instagram Icon" width="18" height="18" decoding="async"
+                  /></a>
+                  <a class="youtube-icon" href="https://www.youtube.com/@obayed-w" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"
+                    ><img src="./image/play.svg" alt="YouTube Icon" width="18" height="18" decoding="async"
+                  /></a>
+                  <a class="linkedin-icon" href="https://x.com/AbuObeyada" target="_blank" rel="noopener noreferrer" aria-label="X Twitter Profile"
+                    ><i class="fa-brands fa-x-twitter" style="color: white;" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <div class="copyright sm-text b-w-text">
+              &copy; 2026 Obayed. All rights reserved. Author: MD. ABU OBAYEDA
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+
+    <!-- swiper js link -->
+    <script src="./js/swiper-bundle.min.js"></script>
+    <!-- js link -->
+    <script src="./js/main.js"></script>
+  </body>
+</html>

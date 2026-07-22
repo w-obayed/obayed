@@ -76,6 +76,9 @@ ul {
     #9d0a12 0% 11%
   );
 }
+.text-primary{
+  color: var(--primary-color) !important;
+}
 .b-text {
   color: var(--heading-text-color);
 }
@@ -298,6 +301,8 @@ ul {
   border-radius: 10px;
   transform: skewX(-4.5deg);
   margin-top: 45px;
+  width: 100%;
+
 }
 .img-bg img {
   width: 100%;
@@ -306,6 +311,7 @@ ul {
   top: -16px;
   right: 15px;
   border-radius: 10px;
+  height: 500px;
 }
 
 /* --- service section css --- */
@@ -331,7 +337,7 @@ ul {
   text-align: center;
 }
 
-/* --- another service area css --- */
+/* --- skill css --- */
 .another-service-section {
   background: url("../image/o.jpg");
   background-repeat: no-repeat;
@@ -398,9 +404,6 @@ ul {
   top: 50%;
   transform: translateY(-50%);
   border: 4px solid #f5f5f5;
-}
-.p-left p {
-  padding-left: 50px;
 }
 
 /* --- gallary area css --- */
@@ -583,30 +586,90 @@ ul {
 }
 
 /* --- question area css --- */
+.question-section {
+  padding: 90px 0;
+  background: linear-gradient(180deg, #fcfcfc 0%, #f4f5f8 100%);
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+}
+
 .question-area {
-  column-gap: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 50px;
+  align-items: start;
 }
+
 .question-area-left {
-  flex: 1;
+  position: sticky;
+  top: 100px;
 }
+
+.question-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(157, 10, 18, 0.08);
+  color: var(--primary-color);
+  font-family: "Oswald", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(157, 10, 18, 0.2);
+  margin-bottom: 18px;
+}
+
 .question-area-left h2 {
-  background: var(--bg-color);
-  padding: 50px;
-  text-align: left !important;
-  border-radius: 5px;
-  line-height: 60px;
+  font-family: "Oswald", sans-serif;
+  font-size: 42px;
+  line-height: 1.18;
+  font-weight: 700;
+  color: #1c1c1c;
+  text-transform: uppercase;
+  margin-bottom: 16px;
 }
+
+.question-area-left p.faq-intro-desc {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #666666;
+  margin-bottom: 25px;
+}
+
 .question-area-right {
-  flex: 2;
-}
-.accordion {
   width: 100%;
-  gap: 5px;
 }
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.accordion-item {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.accordion-item:hover,
+.accordion-item.active {
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 25px rgba(157, 10, 18, 0.1);
+}
+
 .accordion-header {
-  background-color: var(--bg-color);
+  background: #ffffff;
   cursor: pointer;
-  padding: 20px;
+  padding: 22px 24px;
   width: 100%;
   border: none;
   text-align: left;
@@ -614,86 +677,239 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background-color 0.4s ease;
-  border-radius: 5px;
+  gap: 15px;
+  transition: background-color 0.3s ease;
 }
-.accordion-header div {
-  column-gap: 10px;
-  justify-content: space-between;
+
+.accordion-header-left {
+  display: flex;
   align-items: center;
-  width: 100%;
+  gap: 14px;
+  flex: 1;
 }
-.accordion-header h4 {
-  width: 100%;
-}
+
 .bg-text {
-  font-size: 20px;
+  font-size: 16px;
   color: var(--white-color);
-  line-height: 35px;
   font-weight: 700;
-  font-family: "Sofia Sans", sans-serif;
-  background: #ed0b17;
-  width: 35px;
-  height: 35px;
+  font-family: "Oswald", sans-serif;
+  background: linear-gradient(135deg, #9d0a12 0%, #ed0b17 100%);
+  min-width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(157, 10, 18, 0.25);
+  flex-shrink: 0;
+}
+
+.accordion-header h3,
+.accordion-header h4 {
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1c1c1c;
+  margin: 0;
+  line-height: 1.35;
+  text-transform: none;
+}
+
+.accordion-icon-wrap {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
   border-radius: 50%;
-  text-align: center;
+  background: #f4f5f7;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
-.accordion-header:hover {
-  background-color: #ddd;
+
+.accordion-item.active .accordion-icon-wrap {
+  background: rgba(157, 10, 18, 0.1);
+  color: var(--primary-color);
 }
+
+.accordion-icon {
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
 .accordion-content {
   display: none;
-  padding: 20px;
-  background: var(--bg-color);
+  padding: 0 24px 22px 24px;
+  background: #ffffff;
+  border-top: 1px solid #f0f0f0;
 }
-.accordion-content div {
-  column-gap: 10px;
+
+.accordion-content-inner {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding-top: 18px;
 }
-.accordion-content div p {
-  width: 100%;
-}
+
 .bg-b-text {
-  font-size: 20px;
+  font-size: 16px;
   color: var(--white-color);
-  line-height: 35px;
   font-weight: 700;
-  font-family: "Sofia Sans", sans-serif;
-  background: var(--heading-text-color);
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  text-align: center;
+  font-family: "Oswald", sans-serif;
+  background: #1c1c1c;
+  min-width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.accordion-content p.sm-text {
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555555;
+  margin: 0;
 }
 
 /* --- contact section css --- */
 .contact-section {
-  background: url("../image/home-banner1.jpg") no-repeat center center/cover;
-  height: 50vh;
-  justify-content: end;
+  padding: 80px 0 100px 0;
+  background: #ffffff;
+  position: relative;
 }
+
 .red-bg {
-  background: var(--primary-color);
-  width: 1045px;
-  padding: 50px 0px;
-  border-radius: 10px;
-  transform: skewX(-20deg);
-  margin-bottom: -60px;
-}
-.contact-area {
-  justify-content: space-between;
-  width: 85%;
+  background: linear-gradient(135deg, #141419 0%, #1c1c1c 45%, #9d0a12 100%);
+  width: 100%;
+  max-width: 1100px;
   margin: 0 auto;
-  transform: skewX(20deg);
-  align-items: center;
+  padding: 55px 60px;
+  border-radius: 16px;
+  transform: none;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
 }
-.contact-area p {
-  color: #c9cdd1 !important;
+
+.red-bg::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(157, 10, 18, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+
+.contact-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 30px;
+  transform: none;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-text-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-family: "Oswald", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 12px;
+}
+
+.contact-text h2,
+.contact-text h4 {
+  font-family: "Oswald", sans-serif;
+  font-size: 36px;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #ffffff !important;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.contact-text p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #d0d4d9 !important;
+  margin: 0;
+}
+
+.contact-button {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.btn-contact-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  color: #1c1c1c !important;
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.btn-contact-primary:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-contact-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: #ffffff !important;
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 13px 24px;
+  border-radius: 6px;
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-contact-secondary:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* --- footer section css --- */
 .footer-content {
   display: grid;
-  grid-template-columns: 3fr 0.8fr 1fr;
+  grid-template-columns: 3fr 2fr 1fr;
   gap: 13%;
   align-items: flex-start;
   position: relative;
@@ -823,9 +1039,6 @@ ul {
   .red-bg {
     width: 94% !important;
     padding: 50px 0px !important;
-  }
-  .p-left p {
-    padding-left: 35px;
   }
   .column p {
     font-size: 18px;
@@ -1074,45 +1287,45 @@ ul {
     text-align: center;
   }
   .question-section {
-    background-color: #f5f5f5;
-    padding: 50px 0px !important;
+    padding: 60px 0 !important;
   }
   .question-area {
-    column-gap: 0px;
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .question-area-left {
+    position: static;
+    text-align: center;
   }
   .question-area-left h2 {
-    padding: 0px;
+    font-size: 32px;
     text-align: center !important;
-    margin-bottom: 15px;
   }
   /* --- contact section css --- */
   .contact-section {
-    background: url("../image/latop.jpg") no-repeat center center/cover;
-    height: 80vh;
-    justify-content: end;
-    margin-bottom: 100px;
-  }
-  .p-0 {
-    padding: 0px !important;
+    padding: 50px 0 60px 0;
   }
   .red-bg {
-    width: 100% !important;
-    transform: skewX(0deg);
-    border-radius: 0px;
+    padding: 40px 24px;
+    border-radius: 12px;
   }
   .contact-area {
-    transform: skewX(0deg);
     flex-direction: column;
     text-align: center;
-    row-gap: 50px;
+    gap: 30px;
   }
+  .contact-text h2,
   .contact-text h4 {
-    font-size: 24px !important;
-    margin-bottom: 20px;
+    font-size: 26px !important;
   }
-  .contact-text p {
-    font-size: 18px;
+  .contact-button {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-contact-primary,
+  .btn-contact-secondary {
+    width: 100%;
+    justify-content: center;
   }
   /* --- footer section css --- */
   .footer-content {

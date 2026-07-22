@@ -2,13 +2,18 @@
 function toggleAccordion(element) {
   const content = element.nextElementSibling;
   const icon = element.querySelector(".accordion-icon");
+  const parent = element.closest(".accordion-item");
 
   if (content.style.display === "block") {
     content.style.display = "none";
-    icon.style.display = "inline";
+    element.setAttribute("aria-expanded", "false");
+    if (icon) icon.style.transform = "rotate(0deg)";
+    if (parent) parent.classList.remove("active");
   } else {
     content.style.display = "block";
-    icon.style.display = "none";
+    element.setAttribute("aria-expanded", "true");
+    if (icon) icon.style.transform = "rotate(180deg)";
+    if (parent) parent.classList.add("active");
   }
 }
 

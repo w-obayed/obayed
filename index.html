@@ -3,7 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>obayed</title>
+    <title>Obayed - Smart AI Agents, Web & Mobile App Development Agency</title>
+    <meta
+      name="description"
+      content="Engineered digital solutions for business growth. We build high-performance web & mobile applications, custom AI agents, and tech-driven sales automation systems."
+    />
+    <meta
+      name="keywords"
+      content="AI agents, web application development, mobile app development, sales automation, MERN stack, Obayed, software engineering agency"
+    />
+    <meta name="author" content="MD. ABU OBAYEDA" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://obayed.com/" />
+
+    <!-- Resource Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://obayed.com/" />
+    <meta property="og:site_name" content="OBAYED" />
+    <meta property="og:title" content="Obayed - Smart AI Agents, Web & Mobile App Development Agency" />
+    <meta
+      property="og:description"
+      content="Engineered digital solutions for business growth. We build high-performance web & mobile applications, custom AI agents, and tech-driven sales automation systems."
+    />
+    <meta property="og:image" content="https://obayed.com/image/obayed.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@AbuObeyada" />
+    <meta name="twitter:title" content="Obayed - Smart AI Agents, Web & Mobile App Development Agency" />
+    <meta
+      name="twitter:description"
+      content="Engineered digital solutions for business growth. We build high-performance web & mobile applications, custom AI agents, and tech-driven sales automation systems."
+    />
+    <meta name="twitter:image" content="https://obayed.com/image/obayed.png" />
+
     <!-- font-awesome cdn -->
     <link
       rel="stylesheet"
@@ -15,8 +54,8 @@
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
-    <!--- logo, topbar, manu area --->
-    <header>
+    <!--- Header & Navigation --->
+    <header role="banner">
       <section class="header-section">
         <div class="header-top">
           <div class="container">
@@ -24,16 +63,16 @@
               <div class="header-top-bar d-flex-r">
                 <div class="top-bar-left-area">
                   <p class="sm-text w-text">
-                    Call Now For A Free Service: 01846360929
+                    Call Now For A Free Service: <a href="tel:01846360929" class="w-text" style="text-decoration: underline;">01846360929</a>
                   </p>
                 </div>
                 <div class="top-bar-right-area">
                   <p class="sm-text w-text">Follow Us</p>
                   <div class="social-icon d-flex-r">
-                    <i class="fa-brands fa-facebook-f"></i>
-                    <i class="fa-brands fa-youtube"></i>
-                    <i class="fa-brands fa-x-twitter"></i>
-                    <i class="fa-brands fa-instagram"></i>
+                    <a href="https://www.facebook.com/obayed574/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/@obayed-w" target="_blank" rel="noopener noreferrer" aria-label="Watch us on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                    <a href="https://x.com/AbuObeyada" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/obayed574/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
                   </div>
                 </div>
               </div>
@@ -44,613 +83,558 @@
           <div class="container">
             <div class="header-area d-flex-r">
               <div class="header-logo">
-                <img src="./image/logo-o.png" alt="logo.png" />
+                <a href="./index.html" aria-label="Obayed Homepage">
+                  <img src="./image/logo-o.png" alt="Obayed Agency Logo" width="160" height="40" decoding="async" />
+                </a>
               </div>
               <div class="header-manu">
-                <nav class="nav">
-                  <ul class="d-flex-r nav-links">
-                    <li><a class="sm-text b-color" href="#">Services</a></li>
-                    <li><a class="sm-text b-color" href="#">Codes</a></li>
+                <nav class="nav" role="navigation" aria-label="Main Navigation">
+                  <ul class="d-flex-r nav-links" id="main-nav">
+                    <li><a class="sm-text b-color" href="./service.html">Services</a></li>
+                    <li><a class="sm-text b-color" href="./obayed-crm.html">obayedCRM</a></li>
+                    <li><a class="sm-text b-color" href="#codes">Codes</a></li>
+                    <li><a class="sm-text b-color" href="./cold-email-work.html">Case Study</a></li>
                     <li class="none">
-                      <a class="btn btn-w" href="#">Call Us Now</a>
+                      <a class="btn btn-w" href="tel:01846360929">Call Us Now</a>
                     </li>
                   </ul>
                 </nav>
               </div>
-              <div class="hamburger-menu">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-              </div>
+              <button class="hamburger-menu" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="main-nav">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </button>
             </div>
           </div>
         </div>
       </section>
     </header>
 
-    <!-- banner section -->
-    <section class="banner-section d-flex-c">
-      <div class="container">
-        <div class="banner-text d-flex-c">
-          <h4 class="md-text r-color">MD. ABU OBAYEDA</h4>
-          <h1 class="xl-text">Web Developer</h1>
-          <p class="sm-text w-text">
-            I am a web developer with strong problem-solving skills and a solid
-            understanding of system design concepts. If you'd like to evaluate
-            my abilities, feel free to assign me a task, and we can schedule a
-            meeting to discuss it.
-          </p>
-          <a href="#" class="btn-bt"
-            ><div class="d-flex-r center-content">
-              <span>Call Us Now</span>
-              <img class="m-img" src="./image/Arrow 1.svg" alt="" />
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- about section -->
-    <section class="about-section border">
-      <div class="border-middle none"></div>
-      <div class="container">
-        <div class="about-area d-flex-r">
-          <div class="about-content d-flex-c">
-            <div class="lg-text">About Us</div>
-            <div class="sm-text">
-              I'm a web developer who's fascinated by web technologies.<br
-                class="none"
-              />
-              I bring two years of experience in full-stack web development with
-              <br class="none" />
-              tools such as HTML, CSS, JavaScript, Node.js, MongoDB, React.js,
-              Redux.js, Next.js, TypeScript and Express.js.
-            </div>
-            <img src="./image/obayed.jpg" alt="" class="d-none" />
-            <div class="sm-text">
-              Over the past year, Obayed has thrived in his academic pursuits,
-              seamlessly adapting to new environments. With strong proficiency
-              in web development technologies such as JavaScript, HTML, CSS, and
-              WordPress, he brings a wealth of knowledge to every project. His
-              adaptability and eagerness to learn new skills make him a valuable
-              asset in any setting. Obayed's journey is one of embracing
-              challenges and forging his own path to success, a testament to his
-              determination and dedication.
-            </div>
-            <a class="btn btn-b-w m-center">About Us</a>
-          </div>
-          <div class="about-img d-flex-r center-content none">
-            <div class="img-bg">
-              <img class="" src="./image/obayed.jpg" alt="Image" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- service section -->
-    <section class="service-section">
-      <div class="container">
-        <div class="service-area d-flex-c center-content">
-          <h2 class="lg-text">Our Services</h2>
-          <p class="sm-text text-center">
-            Junior Web Developer with 3 Years of Experience in Web Design and
-            Full-Stack <br class="none" />
-            Development, Specializing in IT Services
-          </p>
-          <div class="card-area">
-            <div class="card card-height">
-              <h4 class="md-text">Web Design</h4>
-              <p class="sm-text">
-                With 3 years of experience in web design, I create visually
-                appealing and user-friendly websites. My expertise lies in
-                translating client needs into compelling designs while staying
-                current with the latest trends.
-              </p>
-            </div>
-            <div class="card card-height">
-              <h4 class="md-text">Frontend Developer</h4>
-              <p class="sm-text">
-                I have 2 years of experience creating engaging and responsive
-                user interfaces. My focus is on delivering a seamless and
-                intuitive user experience.
-              </p>
-            </div>
-            <div class="card card-height">
-              <h4 class="md-text">Backend Developer</h4>
-              <p class="sm-text">
-                I specialize in building and maintaining the server-side logic
-                and databases for web applications. My focus is on ensuring
-                reliable and efficient performance.
-              </p>
-            </div>
-            <div class="card card-height">
-              <h4 class="md-text">WordPress Developer</h4>
-              <p class="sm-text">
-                I specialize in building and customizing WordPress sites. My
-                focus is on creating user-friendly and responsive websites that
-                meet client needs.
-              </p>
-            </div>
-          </div>
-          <a class="btn btn-b-w">Call Us Now</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- another service section -->
-    <div class="mobile-area-service d-none">
-      <h2 class="lg-text">Technical Skills Set</h2>
-      <img src="./image/wordpress-picture.jfif" alt="" class="w-100" />
-    </div>
-    <section class="another-service-section">
-      <div class="container">
-        <div class="s-content-area d-flex-r">
-          <div class="service-area-left none">
-            <div class="img-bg">
-              <img class="" src="./image/wordpress-picture.jfif" alt="Image" />
-            </div>
-          </div>
-          <div class="service-area-right d-flex-c">
-            <h2 class="lg-text none w-text">Technical Skills Set</h2>
-            <div class="location-text d-flex-r">
-              <div class="column">
-                <p>NextJS</p>
-                <p>ReactJS</p>
-                <p>ReduxJS</p>
-                <p>JavaScript</p>
-                <p>Tailwind</p>
-                <p>CSS</p>
-                <p>HTML</p>
-                <p>Wordpress</p>
-              </div>
-              <div class="column p-left">
-                <p>Data Structures</p>
-                <p>Algorithms</p>
-                <p>GraphQL</p>
-                <p>RESTful APIs</p>
-                <p>ExpressJS</p>
-                <p>NodeJS</p>
-                <p>TypeScript</p>
-                <p>MongoDB</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- gallary section -->
-    <section class="gallary-section">
-      <h2 class="lg-text w-text d-none">Our Work gallary</h2>
-      <div class="gallary-content d-flex-r none">
-        <div></div>
-        <div class="border-l-r">
-          <h2 class="lg-text w-text">Our Work gallary</h2>
-        </div>
-        <div></div>
-        <div class="border-l">
-          <div class="button-area-arrow">
-            <button class="prev">
-              <img src="./image/Arrow 2.svg" alt="" />
-            </button>
-            <button class="next">
-              <img src="./image/Arrow 2-1.svg" alt="" />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="swiper mySwiper border-t-b">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide image-container">
-            <img src="./image/jersy.jpg" alt="" />
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://v2.ejerseys.com/"
-              class="hover-button"
-              >View Website</a
-            >
-          </div>
-          <div class="swiper-slide image-container">
-            <img src="./image/girls cutting.png" alt="" />
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://fitwithher.com/"
-              class="hover-button"
-              >View Website</a
-            >
-          </div>
-          <div class="swiper-slide image-container">
-            <img src="./image/worker.png" alt="" />
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://abssepticpa.com/"
-              class="hover-button"
-              >View Website</a
-            >
-          </div>
-          <div class="swiper-slide image-container">
-            <img src="./image/computer.png" alt="" />
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="#"
-              class="hover-button"
-              >View Website</a
-            >
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-      <div class="gallary-bottom d-flex-r none">
-        <div></div>
-        <div class="border-l-r"></div>
-        <div></div>
-        <div class="border-l"></div>
-      </div>
-    </section>
-
-    <!-- clients section -->
-    <section class="client-section">
-      <div class="client-heading-text">
-        <h2 class="lg-text">Our Happy Client</h2>
-      </div>
-      <div class="slider-area-c">
+    <!-- Main Content Area -->
+    <main role="main">
+      <!-- Banner Section -->
+      <section class="banner-section d-flex-c" aria-label="Hero Introduction">
         <div class="container">
-          <div class="swiper c-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="testimonial-slide">
-                  <p style="height: 138px" class="sm-text">
-                    “Obayed listened to my ideas, and incorporated them well
-                    into the design, he worked hard to deliver a quality
-                    product”
-                  </p>
-                  <div class="client-detials d-flex-r">
-                    <div class="client-info">
-                      <img src="./image/client 1.webp" alt="Client 1" />
-                      <div>
-                        <h4 class="n-text">Elias Gurrola</h4>
-                        <p class="c-text">Project manager</p>
-                      </div>
-                    </div>
-                    <div class="rating d-flex-r">
-                      <img src="./image/Star.svg" alt="" />
-                      <img src="./image/Star.svg" alt="" />
-                      <img src="./image/Star.svg" alt="" />
-                      <img src="./image/Star.svg" alt="" />
-                      <img src="./image/Star.svg" alt="" />
-                    </div>
-                  </div>
-                </div>
+          <div class="banner-text d-flex-c">
+            <p class="md-text text-primary">Smart Automation & Full-Stack Applications Engineered for Growth</p>
+            <h1 class="xl-text">Web. Mobile. AI.</h1>
+            <p class="sm-text w-text">
+              We build high-performance web applications, custom AI agents, and custom software systems designed to streamline your business workflows, boost your sales, and automate your operations. Let's build your next digital asset.
+            </p>
+            <a href="tel:01846360929" class="btn-bt" aria-label="Call Obayed Agency Now">
+              <div class="d-flex-r center-content">
+                <span>Call Us Now</span>
+                <img class="m-img" src="./image/Arrow 1.svg" alt="Arrow right icon" width="20" height="20" decoding="async" />
               </div>
-              <div class="swiper-slide">
-                <div class="testimonial-slide">
-                  <p style="height: 138px" class="sm-text">
-                    “Amazing extremely high quality work! Seemingly non-stop
-                    availability, attention to details and full dedication to
-                    the project. Avojit delivered more than was expected. Many
-                    thanks!”
-                  </p>
-                  <div class="client-detials d-flex-r">
-                    <div class="client-info">
-                      <img src="./image/client 2.webp" alt="Client 2" />
-                      <div>
-                        <h4 class="n-text">Benjamin Blanco</h4>
-                        <p class="c-text">Digital Marketing Professional</p>
-                      </div>
-                    </div>
-                    <div class="rating d-flex-r">
-                      <img src="./image/Star.svg" alt="" />
-                      <img src="./image/Star.svg" alt="" />
-                      <img src="./image/Star.svg" alt="" />
-                      <img src="./image/Star.svg" alt="" />
-                      <img src="./image/Star.svg" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="testimonial-slide">
-                  <p style="height: 138px" class="sm-text">
-                    “Obayed and his team are professionals with amazing and
-                    creative skills to meet the needs of anyone's Professional
-                    websites, business packets, business cards, etc. It's been a
-                    pleasure working with him regarding the marketing materials
-                    needed for my business.”
-                  </p>
-                  <div class="client-detials d-flex-r">
-                    <div class="client-info">
-                      <img src="./image/client 3.webp" alt="Client 3" />
-                      <div>
-                        <h4 class="n-text">Oleksii Sukhov</h4>
-                        <p class="c-text">Senior Software Engineer</p>
-                      </div>
-                    </div>
-                    <div class="rating d-flex-r">
-                      <img src="./image/Star.svg" alt="" />
-                      <img src="./image/Star.svg" alt="" />
-                      <img src="./image/Star.svg" alt="" />
-                      <img src="./image/Star.svg" alt="" />
-                      <img src="./image/Star.svg" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-pagination"></div>
+            </a>
           </div>
         </div>
-        <!-- <button class="btn-slide prev-one">&#10094;</button>
-        <button class="btn-slide next-one">&#10095;</button> -->
-        <button class="btn-slide prev-one none">
-          <img src="./image/Arrow 2.svg" alt="" />
-        </button>
-        <button class="btn-slide next-one none">
-          <img src="./image/Arrow 2-1.svg" alt="" />
-        </button>
-      </div>
-    </section>
+      </section>
 
-    <!-- question section -->
-    <section class="question-section p-y">
-      <div class="container">
-        <div class="question-area d-flex-r">
-          <div class="question-area-left">
-            <h2 class="lg-text d-flex-r center-content">
-              <span>Frequently Asked Questions</span>
-            </h2>
-          </div>
-          <div class="question-area-right">
-            <div class="accordion d-flex-c">
-              <div class="accordion-item">
-                <button
-                  class="accordion-header"
-                  onclick="toggleAccordion(this)"
-                >
-                  <div class="d-flex-r">
-                    <p class="bg-text">Q</p>
-                    <h4 class="md-text">Tell me about yourself.</h4>
-                  </div>
-                  <img
-                    src="./image/Vector.svg"
-                    alt="Icon"
-                    class="accordion-icon"
-                  />
-                </button>
-                <div class="accordion-content">
-                  <div class="d-flex-r">
-                    <h4 class="bg-b-text">A</h4>
-                    <p class="sm-text">
-                      My name is Abu Obayeda. I am a web developer with 3 years
-                      of experience in the field. I specialize in creating
-                      dynamic and responsive web applications, working with
-                      various technologies such as HTML, CSS, JavaScript, and
-                      backend frameworks like Node.js. I’m passionate about
-                      building efficient, user-friendly solutions, and
-                      continuously learning to enhance my skills in full-stack
-                      development.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item">
-                <button
-                  class="accordion-header"
-                  onclick="toggleAccordion(this)"
-                >
-                  <div class="d-flex-r">
-                    <p class="bg-text">Q</p>
-                    <h4 class="md-text">What is your greatest strength?</h4>
-                  </div>
-                  <img
-                    src="./image/Vector.svg"
-                    alt="Icon"
-                    class="accordion-icon"
-                  />
-                </button>
-                <div class="accordion-content">
-                  <div class="d-flex-r">
-                    <h4 class="bg-b-text">A</h4>
-                    <p class="sm-text">
-                      My greatest strength is problem-solving. As a web
-                      developer, I can quickly find solutions while applying
-                      solid system design concepts to build efficient, scalable
-                      systems.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item">
-                <button
-                  class="accordion-header"
-                  onclick="toggleAccordion(this)"
-                >
-                  <div class="d-flex-r">
-                    <p class="bg-text">Q</p>
-                    <h4 class="md-text">Why should we hire you?</h4>
-                  </div>
-                  <img
-                    src="./image/Vector.svg"
-                    alt="Icon"
-                    class="accordion-icon"
-                  />
-                </button>
-                <div class="accordion-content">
-                  <div class="d-flex-r">
-                    <h4 class="bg-b-text">A</h4>
-                    <p class="sm-text">
-                      I’m a web developer with strong problem-solving skills and
-                      a solid understanding of system design concepts. With
-                      three years of professional experience in web design, I
-                      excel at creating efficient, user-friendly websites that
-                      perform well and look great. I bring both technical
-                      expertise and design sensibility to deliver high-quality
-                      solutions.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item">
-                <button
-                  class="accordion-header"
-                  onclick="toggleAccordion(this)"
-                >
-                  <div class="d-flex-r">
-                    <p class="bg-text">Q</p>
-                    <h4 class="md-text">Why do you want to work here?</h4>
-                  </div>
-                  <img
-                    src="./image/Vector.svg"
-                    alt="Icon"
-                    class="accordion-icon"
-                  />
-                </button>
-                <div class="accordion-content">
-                  <div class="d-flex-r">
-                    <h4 class="bg-b-text">A</h4>
-                    <p class="sm-text">
-                      I’m a web developer with three years of experience in web
-                      design, skilled at creating efficient and user-friendly
-                      websites. I’m excited to work here because I admire the
-                      focus on innovation and quality, and I believe my
-                      technical and design skills would be a great fit for
-                      delivering outstanding solutions.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item">
-                <button
-                  class="accordion-header"
-                  onclick="toggleAccordion(this)"
-                >
-                  <div class="d-flex-r">
-                    <p class="bg-text">Q</p>
-                    <h4 class="md-text">What are your salary expectations?</h4>
-                  </div>
-                  <img
-                    src="./image/Vector.svg"
-                    alt="Icon"
-                    class="accordion-icon"
-                  />
-                </button>
-                <div class="accordion-content">
-                  <div class="d-flex-r">
-                    <h4 class="bg-b-text">A</h4>
-                    <p class="sm-text">
-                      As a junior web developer, my salary expectation is around
-                      $1000 per month. I am eager to apply my skills in HTML,
-                      CSS, JavaScript, and other technologies I’ve been working
-                      with, and I am committed to learning and growing in this
-                      role. I’m looking for a position where I can contribute
-                      effectively while continuing to develop my skills and
-                      experience.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- contact section -->
-    <section class="contact-section d-flex-c">
-      <div class="container d-flex-r center-content p-0">
-        <div class="red-bg">
-          <div class="contact-area d-flex-r">
-            <div class="contact-text">
-              <h4 class="md-text w-text">Need More Information?</h4>
+      <!-- About Section -->
+      <section class="about-section border" aria-label="About Obayed Agency">
+        <div class="border-middle none"></div>
+        <div class="container">
+          <div class="about-area d-flex-r">
+            <div class="about-content d-flex-c">
+              <h2 class="lg-text">We Bridge the Gap Between Complex Code and Business Growth</h2>
+              <p class="sm-text" style="font-weight: 600; color: var(--primary-color);">
+                Driven by Innovation. Built for Efficiency.
+              </p>
+              <img src="./image/o.jpg" alt="MD. ABU OBAYEDA Agency Lead" class="d-none" loading="lazy" decoding="async" />
               <p class="sm-text">
-                Call Us At 01846360929 To Get Your Project Scheduled.
+                Led by MD. ABU OBAYEDA, our agency is a forward-thinking technology team specializing in next-generation digital architecture. We don't just build software; we engineer intelligent systems. From high-converting sales platforms to advanced web applications and custom AI agents, we create tech ecosystems that provide businesses with a definitive competitive edge. Our ultimate focus is delivering scalable, high-impact digital solutions that align technology with your revenue goals.
+              </p>
+              <a class="btn btn-b-w m-center" href="https://calendly.com/w-obayed/new-meeting" target="_blank" rel="noopener noreferrer">Hire Us</a>
+            </div>
+            <div class="about-img d-flex-r center-content none">
+              <div class="img-bg">
+                <img class="" src="./image/obayed.png" alt="MD. ABU OBAYEDA Founder and Chief Architect" loading="lazy" decoding="async" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section class="service-section" id="service" aria-label="Our Core Services">
+        <div class="container">
+          <div class="service-area d-flex-c center-content">
+            <h2 class="lg-text">Engineered Digital Solutions to Scale Your Business</h2>
+            <p class="sm-text text-center">
+              Tailored Technical Innovation Across Web, Mobile, and AI Frameworks
+            </p>
+            <div class="card-area">
+              <article class="card card-height">
+                <h3 class="md-text">Custom AI Agents & Automation</h3>
+                <p class="sm-text">
+                  We design and deploy intelligent AI agents tailored directly to your operational workflows. From automating repetitive back-office tasks to building responsive customer-support agents, we integrate state-of-the-art AI into your systems to boost efficiency.
+                </p>
+              </article>
+              <article class="card card-height">
+                <h3 class="md-text">Web Application Development</h3>
+                <p class="sm-text">
+                  High-performance, secure, and fully responsive web applications engineered with modern technologies. We handle the entire engineering pipeline, from optimized backend server architectures to seamless frontend user interfaces.
+                </p>
+              </article>
+              <article class="card card-height">
+                <h3 class="md-text">Mobile Application Development</h3>
+                <p class="sm-text">
+                  Bring your software platform straight to your users' devices. We build fast, native-feeling mobile applications designed to offer exceptional user experiences, maximize user retention, and drive ongoing engagement.
+                </p>
+              </article>
+              <article class="card card-height">
+                <h3 class="md-text">Tech-Driven Sales Systems</h3>
+                <p class="sm-text">
+                  Turn your digital presence into a highly optimized sales engine. We develop automated lead nurturing funnels, custom API integrations, and tailored software solutions engineered to maximize conversions and track business metrics cleanly.
+                </p>
+              </article>
+            </div>
+            <a class="btn btn-b-w" href="tel:01846360929">Call Us Now</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skill / Technology Stack Section -->
+      <section class="another-service-section" id="codes" aria-label="Core Technology Stack">
+        <div class="mobile-area-service d-none">
+          <h2 class="lg-text">Our Agency Core Technology Stack</h2>
+          <img src="./image/wordpress-picture.jfif" alt="Agency Technology Stack Frameworks" class="w-100" loading="lazy" decoding="async" />
+        </div>
+        <div class="container">
+          <div class="s-content-area d-flex-r">
+            <div class="service-area-left none">
+              <div class="img-bg">
+                <img class="" src="./image/wordpress-picture.jfif" alt="WordPress and Modern Web Development Tech Stack" loading="lazy" decoding="async" />
+              </div>
+            </div>
+            <div class="service-area-right d-flex-c">
+              <h2 class="lg-text none w-text">Our Agency Core Technology Stack</h2>
+              <div class="location-text d-flex-r">
+                <div class="column">
+                  <p>MERN Stack (MongoDB, Express.js, React.js, Node.js)</p>
+                  <p>AI Receptionist & Voice Agents</p>
+                  <p>After-Hours AI Agents</p>
+                  <p>Speed to Lead Optimization</p>
+                  <p>Social Media Automation</p>
+                  <p>Cold Calling Systems</p>
+                  <p>Cold Email Infrastructure</p>
+                  <p>Cold Messaging Automation</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery / Portfolio Section -->
+      <section class="gallary-section" aria-label="Work Portfolio Gallery">
+        <h2 class="lg-text w-text d-none">Our Work Gallery</h2>
+        <div class="gallary-content d-flex-r none">
+          <div></div>
+          <div class="border-l-r">
+            <h2 class="lg-text w-text">Our Work Gallery</h2>
+          </div>
+          <div></div>
+          <div class="border-l">
+            <div class="button-area-arrow">
+              <button class="prev" aria-label="Previous portfolio slide">
+                <img src="./image/Arrow 2.svg" alt="Previous arrow" width="18" height="18" decoding="async" />
+              </button>
+              <button class="next" aria-label="Next portfolio slide">
+                <img src="./image/Arrow 2-1.svg" alt="Next arrow" width="18" height="18" decoding="async" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper mySwiper border-t-b">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide image-container">
+              <img src="./image/cold-email.png" alt="Cold Email Outreach System Case Study" loading="lazy" decoding="async" />
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="./cold-email-work.html"
+                class="hover-button"
+                >View Work</a
+              >
+            </div>
+            <div class="swiper-slide image-container">
+              <img src="./image/cold-email-setup.png" alt="Cold Email Setup & Outbound Engine Showcase" loading="lazy" decoding="async" />
+              <a target="_blank" rel="noopener noreferrer" href="./cold-email-work.html" class="hover-button">View Work</a>
+            </div>
+            <div class="swiper-slide image-container">
+              <img src="./image/girls cutting.png" alt="Fit With Her Fitness Web Platform Showcase" loading="lazy" decoding="async" />
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://fitwithher.com/"
+                class="hover-button"
+                >View Website</a
+              >
+            </div>
+            <div class="swiper-slide image-container">
+              <img src="./image/worker.png" alt="ABS Septic PA Industrial Client Website Showcase" loading="lazy" decoding="async" />
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://abssepticpa.com/"
+                class="hover-button"
+                >View Website</a
+              >
+            </div>
+            <div class="swiper-slide image-container">
+              <img src="./image/computer.png" alt="Custom Web Application Interface Showcase" loading="lazy" decoding="async" />
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="./service.html"
+                class="hover-button"
+                >View Services</a
+              >
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <div class="gallary-bottom d-flex-r none">
+          <div></div>
+          <div class="border-l-r"></div>
+          <div></div>
+          <div class="border-l"></div>
+        </div>
+      </section>
+
+      <!-- Clients / Testimonials Section -->
+      <section class="client-section" aria-label="Client Testimonials">
+        <div class="client-heading-text">
+          <h2 class="lg-text">Our Happy Clients</h2>
+        </div>
+        <div class="slider-area-c">
+          <div class="container">
+            <div class="swiper c-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <article class="testimonial-slide">
+                    <p style="height: 138px" class="sm-text">
+                      “Obayed listened to my ideas, and incorporated them well into the design, he worked hard to deliver a quality product”
+                    </p>
+                    <div class="client-detials d-flex-r">
+                      <div class="client-info">
+                        <img src="./image/client 1.webp" alt="Client Elias Gurrola" loading="lazy" decoding="async" width="50" height="50" />
+                        <div>
+                          <h3 class="n-text">Elias Gurrola</h3>
+                          <p class="c-text">Project Manager</p>
+                        </div>
+                      </div>
+                      <div class="rating d-flex-r" aria-label="5 out of 5 stars rating">
+                        <img src="./image/Star.svg" alt="Star 1" width="16" height="16" decoding="async" />
+                        <img src="./image/Star.svg" alt="Star 2" width="16" height="16" decoding="async" />
+                        <img src="./image/Star.svg" alt="Star 3" width="16" height="16" decoding="async" />
+                        <img src="./image/Star.svg" alt="Star 4" width="16" height="16" decoding="async" />
+                        <img src="./image/Star.svg" alt="Star 5" width="16" height="16" decoding="async" />
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide">
+                  <article class="testimonial-slide">
+                    <p style="height: 138px" class="sm-text">
+                      “Amazing extremely high quality work! Seemingly non-stop availability, attention to details and full dedication to the project. Obayed delivered more than was expected. Many thanks!”
+                    </p>
+                    <div class="client-detials d-flex-r">
+                      <div class="client-info">
+                        <img src="./image/client 2.webp" alt="Client Benjamin Blanco" loading="lazy" decoding="async" width="50" height="50" />
+                        <div>
+                          <h3 class="n-text">Benjamin Blanco</h3>
+                          <p class="c-text">Digital Marketing Professional</p>
+                        </div>
+                      </div>
+                      <div class="rating d-flex-r" aria-label="5 out of 5 stars rating">
+                        <img src="./image/Star.svg" alt="Star 1" width="16" height="16" decoding="async" />
+                        <img src="./image/Star.svg" alt="Star 2" width="16" height="16" decoding="async" />
+                        <img src="./image/Star.svg" alt="Star 3" width="16" height="16" decoding="async" />
+                        <img src="./image/Star.svg" alt="Star 4" width="16" height="16" decoding="async" />
+                        <img src="./image/Star.svg" alt="Star 5" width="16" height="16" decoding="async" />
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide">
+                  <article class="testimonial-slide">
+                    <p style="height: 138px" class="sm-text">
+                      “Obayed and his team are professionals with amazing and creative skills to meet the needs of anyone's professional websites, business packets, business cards, etc. It's been a pleasure working with him.”
+                    </p>
+                    <div class="client-detials d-flex-r">
+                      <div class="client-info">
+                        <img src="./image/client 3.webp" alt="Client Oleksii Sukhov" loading="lazy" decoding="async" width="50" height="50" />
+                        <div>
+                          <h3 class="n-text">Oleksii Sukhov</h3>
+                          <p class="c-text">Senior Software Engineer</p>
+                        </div>
+                      </div>
+                      <div class="rating d-flex-r" aria-label="5 out of 5 stars rating">
+                        <img src="./image/Star.svg" alt="Star 1" width="16" height="16" decoding="async" />
+                        <img src="./image/Star.svg" alt="Star 2" width="16" height="16" decoding="async" />
+                        <img src="./image/Star.svg" alt="Star 3" width="16" height="16" decoding="async" />
+                        <img src="./image/Star.svg" alt="Star 4" width="16" height="16" decoding="async" />
+                        <img src="./image/Star.svg" alt="Star 5" width="16" height="16" decoding="async" />
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <button class="btn-slide prev-one none" aria-label="Previous testimonial slide">
+            <img src="./image/Arrow 2.svg" alt="Previous testimonial" width="18" height="18" decoding="async" />
+          </button>
+          <button class="btn-slide next-one none" aria-label="Next testimonial slide">
+            <img src="./image/Arrow 2-1.svg" alt="Next testimonial" width="18" height="18" decoding="async" />
+          </button>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="question-section" aria-label="Frequently Asked Questions">
+        <div class="container">
+          <div class="question-area">
+            <div class="question-area-left">
+              <div class="question-badge">
+                <i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ
+              </div>
+              <h2>Frequently Asked Questions</h2>
+              <p class="faq-intro-desc">
+                Clear answers to your technical implementation, AI automation, and engagement questions. Have something custom? Reach out anytime.
               </p>
             </div>
-            <div class="contact-button">
-              <a href="" class="btn btn-r">Schedule an Book US</a>
+            <div class="question-area-right">
+              <div class="accordion">
+                <!-- Item 1 -->
+                <div class="accordion-item">
+                  <button
+                    class="accordion-header"
+                    onclick="toggleAccordion(this)"
+                    aria-expanded="false"
+                  >
+                    <div class="accordion-header-left">
+                      <span class="bg-text">Q</span>
+                      <h3>What kind of AI implementation and automation services do you offer?</h3>
+                    </div>
+                    <div class="accordion-icon-wrap">
+                      <i class="fa-solid fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      <span class="bg-b-text">A</span>
+                      <p class="sm-text">
+                        We build custom AI agents tailored to your business needs, including internal workflow automation, automated lead-capture bots, data analysis pipelines, and custom customer support systems integrated directly with your existing platform.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="accordion-item">
+                  <button
+                    class="accordion-header"
+                    onclick="toggleAccordion(this)"
+                    aria-expanded="false"
+                  >
+                    <div class="accordion-header-left">
+                      <span class="bg-text">Q</span>
+                      <h3>Can your agency build both web and mobile software solutions?</h3>
+                    </div>
+                    <div class="accordion-icon-wrap">
+                      <i class="fa-solid fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      <span class="bg-b-text">A</span>
+                      <p class="sm-text">
+                        Yes. We build comprehensive web applications using frameworks like Next.js and Node.js, alongside cross-platform mobile apps to ensure your application works flawlessly on desktops, tablets, and smartphones.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="accordion-item">
+                  <button
+                    class="accordion-header"
+                    onclick="toggleAccordion(this)"
+                    aria-expanded="false"
+                  >
+                    <div class="accordion-header-left">
+                      <span class="bg-text">Q</span>
+                      <h3>How do your tech-driven sales systems help grow my revenue?</h3>
+                    </div>
+                    <div class="accordion-icon-wrap">
+                      <i class="fa-solid fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      <span class="bg-b-text">A</span>
+                      <p class="sm-text">
+                        We build high-converting landing pages, seamless integrations with payment systems, and custom software pipelines that turn random visitors into qualified leads and buying customers.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="accordion-item">
+                  <button
+                    class="accordion-header"
+                    onclick="toggleAccordion(this)"
+                    aria-expanded="false"
+                  >
+                    <div class="accordion-header-left">
+                      <span class="bg-text">Q</span>
+                      <h3>Do you provide support and optimization after launching a project?</h3>
+                    </div>
+                    <div class="accordion-icon-wrap">
+                      <i class="fa-solid fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      <span class="bg-b-text">A</span>
+                      <p class="sm-text">
+                        Absolutely. We ensure your systems, APIs, database engines, and frontend architectures remain highly secure, completely optimized, and fully scalable as your user numbers grow.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="accordion-item">
+                  <button
+                    class="accordion-header"
+                    onclick="toggleAccordion(this)"
+                    aria-expanded="false"
+                  >
+                    <div class="accordion-header-left">
+                      <span class="bg-text">Q</span>
+                      <h3>How do we get our development project scheduled with you?</h3>
+                    </div>
+                    <div class="accordion-icon-wrap">
+                      <i class="fa-solid fa-chevron-down accordion-icon" aria-hidden="true"></i>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      <span class="bg-b-text">A</span>
+                      <p class="sm-text">
+                        Simply call us at 01846360929 or use our scheduling page to choose a time that fits your calendar. We will analyze your project requirements, goals, and technical scope to deliver a clear development roadmap.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- footer section -->
-    <footer>
+      <!-- Contact Banner Section -->
+      <section class="contact-section" aria-label="Contact Us & Book Schedule">
+        <div class="container">
+          <div class="red-bg">
+            <div class="contact-area">
+              <div class="contact-text">
+                <div class="contact-text-tag">
+                  <i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact Us
+                </div>
+                <h2>Ready to Scale Your Business Operations?</h2>
+                <p>
+                  Call us directly at 01846360929 or book a 15-minute strategy consultation to discuss your custom project.
+                </p>
+              </div>
+              <div class="contact-button">
+                <a href="https://calendly.com/w-obayed/new-meeting" class="btn-contact-primary" target="_blank" rel="noopener noreferrer">
+                  <span>Schedule A Meeting</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+                <a href="tel:01846360929" class="btn-contact-secondary">
+                  <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                  <span>Call 01846360929</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
       <section class="footer-section">
         <div class="footer-top p-my border">
           <div class="container">
             <div class="footer-content">
               <div class="border-x none"></div>
               <div class="content-column footer-logo logo">
-                <img src="./image/logo-o.png" alt="obayed" />
+                <img src="./image/logo-o.png" alt="Obayed Agency Logo" width="160" height="40" loading="lazy" decoding="async" />
                 <p class="sm-text b-w-text f-text-p">
-                  Delivering tailored, business-oriented web solutions with a
-                  focus on innovation and efficiency. Seeking the freedom and
-                  flexibility of remote work to bring creative, high-impact
-                  solutions to clients while maintaining a balanced work-life
-                  integration.
+                  Delivering tailored, business-oriented web solutions with a focus on innovation and efficiency. We build high-impact digital products designed to streamline workflows and scale operations.
                 </p>
               </div>
               <div class="content-column">
                 <h3 class="md-text">Services</h3>
                 <ul>
                   <li>
-                    <a class="sm-text b-w-text" href="">Web applications</a>
+                    <a class="sm-text b-w-text" href="./service.html#custom-ai">Custom AI Agents & Automation</a>
                   </li>
                   <li>
-                    <a class="sm-text b-w-text" href="">web design</a>
+                    <a class="sm-text b-w-text" href="./service.html#full-stack">Web Application Development</a>
                   </li>
-                  <li><a class="sm-text b-w-text" href="">wordpress</a></li>
+                  <li><a class="sm-text b-w-text" href="./service.html#full-stack">Mobile Application Development</a></li>
                   <li>
-                    <a class="sm-text b-w-text" href="">RESTful APIs</a>
+                    <a class="sm-text b-w-text" href="./service.html#sales-optimization">Tech-Driven Sales</a>
                   </li>
                 </ul>
               </div>
               <div class="content-column contact-info">
                 <h3 class="md-text">Contact Us</h3>
                 <p class="sm-text b-w-text">
-                  <a class="d-flex-r" href="tel:01846360929"
-                    ><img src="./image/Icon (2).svg" alt="" /><span
+                  <a class="d-flex-r" href="tel:01846360929" aria-label="Call us at 01846360929"
+                    ><img src="./image/Icon (2).svg" alt="Phone Icon" width="18" height="18" decoding="async" /><span
                       >01846360929</span
                     ></a
                   >
                 </p>
                 <p class="sm-text b-w-text">
-                  <a href="mailto:abuobeyada574@gmail.com"
-                    ><img src="./image/Icon (1).svg" alt="" /><span
+                  <a href="mailto:abuobeyada574@gmail.com" aria-label="Email us at abuobeyada574@gmail.com"
+                    ><img src="./image/Icon (1).svg" alt="Email Icon" width="18" height="18" decoding="async" /><span
                       >abuobeyada574@gmail.com</span
                     ></a
                   >
                 </p>
                 <p class="sm-text b-w-text">
-                  <a href="mailto:omnitechnion@gmail.com"
-                    ><img src="./image/Icon.svg" alt="" /><span
-                      >Bangladesh , Dhaka</span
+                  <a href="#" aria-label="Location Dhaka Bangladesh"
+                    ><img src="./image/Icon.svg" alt="Location Icon" width="18" height="18" decoding="async" /><span
+                      >Dhaka, Bangladesh</span
                     ></a
                   >
                 </p>
 
                 <div class="social-icons d-flex-r">
-                  <a class="facebook-icon" href="#"
-                    ><img src="./image/f.svg" alt="Facebook"
+                  <a class="facebook-icon" href="https://www.facebook.com/obayed574/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile"
+                    ><img src="./image/f.svg" alt="Facebook Icon" width="18" height="18" decoding="async"
                   /></a>
-                  <a class="instagram-icon" href="#"
-                    ><img src="./image/instagram.svg" alt="Instagram"
+                  <a class="instagram-icon" href="https://www.instagram.com/obayed574/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile"
+                    ><img src="./image/instagram.svg" alt="Instagram Icon" width="18" height="18" decoding="async"
                   /></a>
-                  <a class="youtube-icon" href="#"
-                    ><img src="./image/play.svg" alt="YouTube"
+                  <a class="youtube-icon" href="https://www.youtube.com/@obayed-w" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"
+                    ><img src="./image/play.svg" alt="YouTube Icon" width="18" height="18" decoding="async"
                   /></a>
-                  <a class="linkedin-icon" href="#"
-                    ><img src="./image/linked_in.svg" alt="LinkedIn"
-                  /></a>
+                  <a class="linkedin-icon" href="https://x.com/AbuObeyada" target="_blank" rel="noopener noreferrer" aria-label="X Twitter Profile"
+                    ><i class="fa-brands fa-x-twitter" style="color: white;" aria-hidden="true"></i></a>
                 </div>
               </div>
             </div>
@@ -659,7 +643,7 @@
         <div class="footer-bottom">
           <div class="container">
             <div class="copyright sm-text b-w-text">
-              &copy; 2024 obayed. All rights reserved.
+              &copy; 2026 Obayed. All rights reserved. Author: MD. ABU OBAYEDA
             </div>
           </div>
         </div>
