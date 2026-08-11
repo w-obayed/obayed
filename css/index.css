@@ -1391,3 +1391,31 @@ ul {
     column-gap: 10%;
   }
 }
+
+/* Client-Side Router Loading Indicator & Page Transition Styles */
+#router-loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #9d0a12 0%, #ed0b17 50%, #f47d31 100%);
+  z-index: 99999;
+  opacity: 0;
+  transition: width 0.25s ease-out, opacity 0.3s ease;
+  box-shadow: 0 0 10px rgba(237, 11, 23, 0.7);
+  pointer-events: none;
+}
+
+#router-loading-bar.loading {
+  opacity: 1;
+}
+
+main {
+  transition: opacity 0.15s ease-in-out;
+}
+
+main.page-transitioning {
+  opacity: 0.6;
+}
+

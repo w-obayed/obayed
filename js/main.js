@@ -23,78 +23,25 @@ function toggleAccordion(element) {
   }
 }
 
-// Hamburger menu toggle
-document.addEventListener("DOMContentLoaded", () => {
-  const hamburgerMenu = document.querySelector(".hamburger-menu");
-  const navLinks = document.querySelector(".nav-links");
+// Swiper Instance Storage
+let swiperInstanceMain = null;
+let swiperInstanceOne = null;
 
-  if (hamburgerMenu && navLinks) {
-    hamburgerMenu.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-      const isExpanded = navLinks.classList.contains("active");
-      hamburgerMenu.setAttribute("aria-expanded", isExpanded ? "true" : "false");
-    });
+// Initialize Swiper Sliders
+function initSwiperSliders() {
+  if (typeof Swiper === "undefined") return;
+
+  if (swiperInstanceMain) {
+    try { swiperInstanceMain.destroy(true, true); } catch (e) {}
+    swiperInstanceMain = null;
+  }
+  if (swiperInstanceOne) {
+    try { swiperInstanceOne.destroy(true, true); } catch (e) {}
+    swiperInstanceOne = null;
   }
 
-  // Interactive ROI Revenue Calculator for White-Label WhatsApp CRM
-  const clientSlider = document.getElementById("client-count-slider");
-  const priceSlider = document.getElementById("price-per-client-slider");
-  const clientVal = document.getElementById("client-count-val");
-  const priceVal = document.getElementById("price-per-client-val");
-  const mrrVal = document.getElementById("mrr-val");
-  const arrVal = document.getElementById("arr-val");
-
-  function updateRoiCalculator() {
-    if (!clientSlider || !priceSlider || !clientVal || !priceVal || !mrrVal || !arrVal) return;
-
-    const clients = parseInt(clientSlider.value, 10);
-    const price = parseInt(priceSlider.value, 10);
-
-    const mrr = clients * price;
-    const arr = mrr * 12;
-
-    clientVal.textContent = clients + (clients === 1 ? " Client" : " Clients");
-    priceVal.textContent = "$" + price.toLocaleString() + "/mo";
-    mrrVal.textContent = "$" + mrr.toLocaleString() + "/mo";
-    arrVal.textContent = "$" + arr.toLocaleString() + "/yr";
-  }
-
-  if (clientSlider && priceSlider) {
-    clientSlider.addEventListener("input", updateRoiCalculator);
-    priceSlider.addEventListener("input", updateRoiCalculator);
-    updateRoiCalculator();
-  }
-});
-
-// CSS Grid equal height handler for cards
-function setEqualHeight() {
-  const cards = document.querySelectorAll(".card");
-  if (!cards.length) return;
-
-  let maxHeight = 0;
-  cards.forEach((card) => {
-    card.style.height = "auto";
-  });
-
-  cards.forEach((card) => {
-    const cardHeight = card.offsetHeight;
-    if (cardHeight > maxHeight) {
-      maxHeight = cardHeight;
-    }
-  });
-
-  cards.forEach((card) => {
-    card.style.height = maxHeight + "px";
-  });
-}
-
-window.addEventListener("resize", setEqualHeight);
-window.addEventListener("load", setEqualHeight);
-
-// Swiper Sliders Initialization (Safely wrapped)
-if (typeof Swiper !== "undefined") {
   if (document.querySelector(".mySwiper")) {
-    var swiper = new Swiper(".mySwiper", {
+    swiperInstanceMain = new Swiper(".mySwiper", {
       slidesPerView: 4,
       loop: true,
       fade: "true",
@@ -124,7 +71,7 @@ if (typeof Swiper !== "undefined") {
   }
 
   if (document.querySelector(".c-swiper")) {
-    var swiperOne = new Swiper(".c-swiper", {
+    swiperInstanceOne = new Swiper(".c-swiper", {
       slidesPerView: 3,
       spaceBetween: 50,
       loop: true,
@@ -150,3 +97,82 @@ if (typeof Swiper !== "undefined") {
     });
   }
 }
+
+// Interactive ROI Revenue Calculator for White-Label WhatsApp CRM
+function initRoiCalculator() {
+  const clientSlider = document.getElementById("client-count-slider");
+  const priceSlider = document.getElementById("price-per-client-slider");
+  const clientVal = document.getElementById("client-count-val");
+  const priceVal = document.getElementById("price-per-client-val");
+  const mrrVal = document.getElementById("mrr-val");
+  const arrVal = document.getElementById("arr-val");
+
+  if (!clientSlider || !priceSlider || !clientVal || !priceVal || !mrrVal || !arrVal) return;
+
+  function updateRoiCalculator() {
+    const clients = parseInt(clientSlider.value, 10);
+    const price = parseInt(priceSlider.value, 10);
+
+    const mrr = clients * price;
+    const arr = mrr * 12;
+
+    clientVal.textContent = clients + (clients === 1 ? " Client" : " Clients");
+    priceVal.textContent = "$" + price.toLocaleString() + "/mo";
+    mrrVal.textContent = "$" + mrr.toLocaleString() + "/mo";
+    arrVal.textContent = "$" + arr.toLocaleString() + "/yr";
+  }
+
+  // Remove old listeners by replacing elements clone or directly setting oninput
+  clientSlider.oninput = updateRoiCalculator;
+  priceSlider.oninput = updateRoiCalculator;
+  updateRoiCalculator();
+}
+
+// CSS Grid equal height handler for cards
+function setEqualHeight() {
+  const cards = document.querySelectorAll(".card");
+  if (!cards.length) return;
+
+  let maxHeight = 0;
+  cards.forEach((card) => {
+    card.style.height = "auto";
+  });
+
+  cards.forEach((card) => {
+    const cardHeight = card.offsetHeight;
+    if (cardHeight > maxHeight) {
+      maxHeight = cardHeight;
+    }
+  });
+
+  cards.forEach((card) => {
+    card.style.height = maxHeight + "px";
+  });
+}
+
+// Global page component initializer (called on load & client-side route transitions)
+window.initPageScripts = function () {
+  initRoiCalculator();
+  setEqualHeight();
+  initSwiperSliders();
+};
+
+window.addEventListener("resize", setEqualHeight);
+window.addEventListener("load", setEqualHeight);
+
+// Initial setup on DOMContentLoaded
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburgerMenu = document.querySelector(".hamburger-menu");
+  const navLinks = document.querySelector(".nav-links");
+
+  if (hamburgerMenu && navLinks && !hamburgerMenu.dataset.initialized) {
+    hamburgerMenu.dataset.initialized = "true";
+    hamburgerMenu.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      const isExpanded = navLinks.classList.contains("active");
+      hamburgerMenu.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+    });
+  }
+
+  window.initPageScripts();
+});
