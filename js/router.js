@@ -10,22 +10,22 @@
   // Route Definitions & Clean URL Mappings
   const ROUTE_MAP = [
     {
-      clean: '/',
+      clean: './index.html',
       file: 'index.html',
       aliases: ['/', '/index', '/index.html']
     },
     {
-      clean: '/Services',
+      clean: './service.html',
       file: 'service.html',
       aliases: ['/services', '/Services', '/service', '/service.html']
     },
     {
-      clean: '/obayedCRM',
+      clean: './obayed-crm.html',
       file: 'obayed-crm.html',
       aliases: ['/obayedcrm', '/obayedCRM', '/obayed-crm', '/obayed-crm.html']
     },
     {
-      clean: '/White-Label CRM',
+      clean: './white-label-whatsapp-crm.html',
       file: 'white-label-whatsapp-crm.html',
       aliases: [
         '/white-label crm',
@@ -37,7 +37,7 @@
       ]
     },
     {
-      clean: '/cold-email-work',
+      clean: './cold-email-work.html',
       file: 'cold-email-work.html',
       aliases: [
         '/cold-email-work',
@@ -167,11 +167,19 @@
     });
 
     // Auto-close mobile menu if open
-    const navMenu = document.querySelector('.nav-links');
-    const hamburger = document.querySelector('.hamburger-menu');
-    if (navMenu && navMenu.classList.contains('active')) {
-      navMenu.classList.remove('active');
-      if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+    if (typeof window.closeMobileMenu === 'function') {
+      window.closeMobileMenu();
+    } else {
+      const navMenu = document.querySelector('.nav-links');
+      const hamburger = document.querySelector('.hamburger-menu');
+      if (navMenu && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active', 'is-active');
+        if (hamburger) {
+          hamburger.classList.remove('is-active');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      }
+      document.body.classList.remove('nav-open');
     }
   }
 

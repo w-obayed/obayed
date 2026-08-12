@@ -3,29 +3,6 @@
    Matching Brand Identity, Browser Mockups & Button Styling
    ========================================================================== */
 
-/* --- Mobile Nav Overlay Styles for Page --- */
-@media (max-width: 768px) {
-  .header-manu nav ul {
-    min-width: 240px !important;
-    width: 70% !important;
-    padding: 20px 15px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
-    border: 1px solid #d0d0d0 !important;
-    background: #ffffff !important;
-  }
-  .header-manu nav ul li {
-    width: 100% !important;
-    text-align: center !important;
-    margin-bottom: 12px;
-  }
-  .header-manu nav ul li a {
-    color: #1c1c1c !important;
-    font-size: 15px !important;
-    font-weight: 600 !important;
-    display: block !important;
-    width: 100% !important;
-  }
-}
 
 /* --- Global Utilities & Shared Badges --- */
 .section-tag {
@@ -248,7 +225,8 @@
 
 .crm-browser-mockup {
   background: #1e1e24;
-  border-radius: 12px;
+border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -694,6 +672,7 @@
   background: #2a2a38;
   outline: none;
   -webkit-appearance: none;
+  appearance: none;
   cursor: pointer;
 }
 
@@ -893,6 +872,32 @@
 /* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
+@media (max-width: 1100px) {
+  .wl-hero-headline {
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.2;
+  }
+
+  .section-header h2 {
+    font-size: clamp(26px, 3.5vw, 36px);
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .roi-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+
+  .calc-results-display {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+}
+
 @media (max-width: 992px) {
   .wl-hero-grid {
     grid-template-columns: 1fr;
@@ -925,7 +930,8 @@
   }
 
   .wl-hero-headline {
-    font-size: 38px;
+    font-size: clamp(28px, 4vw, 38px);
+    line-height: 1.25;
   }
 }
 
@@ -935,7 +941,8 @@
   }
 
   .wl-hero-headline {
-    font-size: 32px;
+    font-size: clamp(26px, 4.5vw, 32px);
+    line-height: 1.25;
   }
 
   .wl-hero-subheadline {
@@ -943,7 +950,8 @@
   }
 
   .section-header h2 {
-    font-size: 30px;
+    font-size: clamp(24px, 4vw, 30px);
+    line-height: 1.25;
   }
 
   .wl-cta-card {
@@ -951,7 +959,8 @@
   }
 
   .wl-cta-card h2 {
-    font-size: 28px;
+    font-size: clamp(22px, 3.8vw, 28px);
+    line-height: 1.25;
   }
 
   .calc-results-display {

@@ -1,26 +1,5 @@
 /* --- Service Page Styles (matching index.html branding & light theme) --- */
 
-/* Mobile Menu Enhancements */
-@media (max-width: 768px) {
-  .header-manu nav ul {
-    min-width: 220px !important;
-    width: 65% !important;
-    padding: 15px 10px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
-    border: 1px solid #d0d0d0 !important;
-    background: #ffffff !important;
-  }
-  .header-manu nav ul li {
-    width: 100% !important;
-    text-align: center !important;
-  }
-  .header-manu nav ul li a {
-    color: #1c1c1c !important;
-    font-size: 15px !important;
-    display: block !important;
-    width: 100% !important;
-  }
-}
 
 /* Breadcrumb Navigation */
 .service-breadcrumb {
@@ -386,7 +365,33 @@
   font-weight: 400;
 }
 
-/* --- Comprehensive Mobile Responsiveness --- */
+/* --- Comprehensive Mobile & Tablet Responsiveness --- */
+@media (max-width: 1100px) {
+  .service-hero-section {
+    padding: 50px 0 35px 0;
+  }
+
+  .service-hero-section .hero-headline {
+    font-size: clamp(28px, 3.5vw, 40px) !important;
+    line-height: 1.25 !important;
+  }
+
+  .service-title {
+    font-size: clamp(24px, 3.2vw, 32px) !important;
+    line-height: 1.25 !important;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .details-two-col {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+}
+
 @media (max-width: 992px) {
   .service-hero-section {
     padding: 50px 0 35px 0;
