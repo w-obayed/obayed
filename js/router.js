@@ -47,23 +47,25 @@
       ]
     },
     {
-      clean: '/terms-of-service-page',
+      clean: './terms-of-service.html',
       file: 'terms-of-service.html',
       aliases: [
         '/terms-of-service-page',
         '/terms-of-service',
         '/terms',
-        '/terms-of-service.html'
+        '/terms-of-service.html',
+        './terms-of-service.html'
       ]
     },
     {
-      clean: '/privacy-policy-page',
+      clean: './privacy-policy.html',
       file: 'privacy-policy.html',
       aliases: [
         '/privacy-policy-page',
         '/privacy-policy',
         '/privacy',
-        '/privacy-policy.html'
+        '/privacy-policy.html',
+        './privacy-policy.html'
       ]
     }
   ];
@@ -83,11 +85,13 @@
    * Helper: Normalize pathname to route info
    */
   function matchRoute(pathname) {
-    const cleanPath = decodeURIComponent(pathname).toLowerCase().replace(/\/$/, '') || '/';
+    const rawPath = decodeURIComponent(pathname).toLowerCase().replace(/\/$/, '') || '/';
+    const filename = rawPath.split('/').pop() || '/';
     for (const route of ROUTE_MAP) {
       for (const alias of route.aliases) {
         const normAlias = alias.toLowerCase().replace(/\/$/, '') || '/';
-        if (cleanPath === normAlias) {
+        const aliasFilename = normAlias.split('/').pop() || '/';
+        if (rawPath === normAlias || rawPath.endsWith('/' + aliasFilename) || filename === aliasFilename) {
           return route;
         }
       }
@@ -417,13 +421,48 @@
         );
       }
 
+      // If fetchedDoc has any elements between header and main, pull them into newMain
+      const fetchedHeader = fetchedDoc.querySelector('header');
+      if (fetchedHeader && newMain) {
+        const extraElements = [];
+        let el = fetchedHeader.nextElementSibling;
+        while (el && el !== newMain) {
+          extraElements.push(el);
+          el = el.nextElementSibling;
+        }
+        for (let i = extraElements.length - 1; i >= 0; i--) {
+          newMain.insertBefore(extraElements[i], newMain.firstChild);
+        }
+      }
+
       // Update Title
       if (fetchedDoc.title) {
         document.title = fetchedDoc.title;
       }
 
-      // Swap Main Element Content & Attributes
+      // Clean up any stray elements in current DOM between header and main, or between main and footer
+      const currentHeader = document.querySelector('header');
+      const currentFooter = document.querySelector('footer');
       const currentMain = document.querySelector('main');
+
+      if (currentHeader && currentMain) {
+        let el = currentHeader.nextElementSibling;
+        while (el && el !== currentMain) {
+          const toRemove = el;
+          el = el.nextElementSibling;
+          toRemove.remove();
+        }
+      }
+      if (currentMain && currentFooter) {
+        let el = currentMain.nextElementSibling;
+        while (el && el !== currentFooter) {
+          const toRemove = el;
+          el = el.nextElementSibling;
+          toRemove.remove();
+        }
+      }
+
+      // Swap Main Element Content & Attributes
       if (currentMain) {
         currentMain.innerHTML = newMain.innerHTML;
         // Copy attributes
