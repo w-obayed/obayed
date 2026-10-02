@@ -25,38 +25,6 @@
   font-size: 12px;
 }
 
-/* --- Breadcrumb Navigation --- */
-.crm-breadcrumb {
-  background: var(--bg-color);
-  padding: 16px 0;
-  border-bottom: 1px solid #e2e2e2;
-}
-
-.crm-breadcrumb .breadcrumb-list {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  color: #666666;
-  flex-wrap: wrap;
-}
-
-.crm-breadcrumb a {
-  color: #1c1c1c;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.crm-breadcrumb a:hover {
-  color: var(--primary-color);
-}
-
-.crm-breadcrumb .active-crumb {
-  color: var(--primary-color);
-  font-weight: 700;
-}
-
 /* --- Hero Section --- */
 .crm-hero-section {
   background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);

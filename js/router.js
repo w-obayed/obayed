@@ -45,6 +45,26 @@
         '/case-study',
         '/Case-Study'
       ]
+    },
+    {
+      clean: '/terms-of-service-page',
+      file: 'terms-of-service.html',
+      aliases: [
+        '/terms-of-service-page',
+        '/terms-of-service',
+        '/terms',
+        '/terms-of-service.html'
+      ]
+    },
+    {
+      clean: '/privacy-policy-page',
+      file: 'privacy-policy.html',
+      aliases: [
+        '/privacy-policy-page',
+        '/privacy-policy',
+        '/privacy',
+        '/privacy-policy.html'
+      ]
     }
   ];
 
@@ -52,7 +72,8 @@
     'service.css',
     'obayed-crm.css',
     'white-label-whatsapp-crm.css',
-    'cold-email-work.css'
+    'cold-email-work.css',
+    'legal-pages.css'
   ];
 
   let currentAbortController = null;
@@ -81,11 +102,13 @@
     const route = matchRoute(urlObj.pathname);
     if (route) {
       // Build clean full path
-      const fullClean = route.clean + urlObj.search + urlObj.hash;
+      const isFileProto = window.location.protocol === 'file:';
+      const cleanBase = isFileProto ? ('./' + route.file) : route.clean;
+      const fullClean = cleanBase + urlObj.search + urlObj.hash;
       // Build target fetch URL
       const currentDir = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
       const fetchUrl = currentDir + route.file + urlObj.search;
-      return { cleanUrl: route.clean, fullCleanUrl: fullClean, fetchUrl, file: route.file };
+      return { cleanUrl: cleanBase, fullCleanUrl: fullClean, fetchUrl, file: route.file };
     }
 
     // Default fallback for unmatched routes
@@ -184,39 +207,155 @@
   }
 
   /**
-   * Synchronize page-specific head stylesheets
+   * Helper: Check if two stylesheet hrefs refer to the same resource
    */
-  function syncHeadStylesheets(fetchedDoc) {
+  function isSameStylesheet(href1, href2) {
+    if (!href1 || !href2) return false;
+    if (href1 === href2) return true;
+    try {
+      return new URL(href1, window.location.href).href === new URL(href2, window.location.href).href;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /**
+   * Helper: Load a stylesheet and return a Promise that resolves when it is ready
+   */
+  function loadStylesheet(href, signal) {
+    return new Promise((resolve) => {
+      if (signal && signal.aborted) {
+        resolve();
+        return;
+      }
+
+      const currentLinks = Array.from(document.querySelectorAll('link[rel="stylesheet"]'));
+      const exists = currentLinks.some((cl) => {
+        const clHref = cl.getAttribute('href') || '';
+        return isSameStylesheet(clHref, href) || isSameStylesheet(cl.href, href);
+      });
+
+      if (exists) {
+        resolve();
+        return;
+      }
+
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+
+      let finished = false;
+      let timeoutId = null;
+
+      function cleanup() {
+        if (timeoutId) clearTimeout(timeoutId);
+        link.removeEventListener('load', onLoad);
+        link.removeEventListener('error', onError);
+        if (signal) {
+          signal.removeEventListener('abort', onAbort);
+        }
+      }
+
+      function onLoad() {
+        if (finished) return;
+        finished = true;
+        cleanup();
+        resolve();
+      }
+
+      function onError() {
+        if (finished) return;
+        finished = true;
+        cleanup();
+        // Resolve even on error so navigation is never permanently blocked
+        resolve();
+      }
+
+      function onAbort() {
+        if (finished) return;
+        finished = true;
+        cleanup();
+        link.remove();
+        resolve();
+      }
+
+      link.addEventListener('load', onLoad);
+      link.addEventListener('error', onError);
+
+      if (signal) {
+        signal.addEventListener('abort', onAbort);
+      }
+
+      // Safety timeout to prevent navigation from hanging if a network request stalls
+      timeoutId = setTimeout(onLoad, 2500);
+
+      document.head.appendChild(link);
+
+      // Check if stylesheet is already available synchronously (e.g. from memory cache)
+      try {
+        if (link.sheet && link.sheet.cssRules && link.sheet.cssRules.length > 0) {
+          onLoad();
+        }
+      } catch (e) {
+        // Cross-origin stylesheets may throw SecurityError on cssRules access; onLoad handles it via event
+      }
+    });
+  }
+
+  /**
+   * Load all required head stylesheets for fetched document before rendering
+   */
+  async function loadRequiredStylesheets(fetchedDoc, signal) {
     const fetchedLinks = Array.from(fetchedDoc.querySelectorAll('link[rel="stylesheet"]'));
     const currentLinks = Array.from(document.querySelectorAll('link[rel="stylesheet"]'));
 
-    const fetchedHrefs = fetchedLinks.map((l) => l.getAttribute('href') || '');
+    const loadPromises = [];
 
-    // Add missing stylesheets from fetched page
     fetchedLinks.forEach((link) => {
       const href = link.getAttribute('href');
       if (!href) return;
-      const exists = currentLinks.some((cl) => cl.getAttribute('href') === href);
+      const exists = currentLinks.some((cl) => {
+        const clHref = cl.getAttribute('href') || '';
+        return isSameStylesheet(clHref, href) || isSameStylesheet(cl.href, href);
+      });
+
       if (!exists) {
-        const newLink = document.createElement('link');
-        newLink.rel = 'stylesheet';
-        newLink.href = href;
-        document.head.appendChild(newLink);
+        loadPromises.push(loadStylesheet(href, signal));
       }
     });
 
-    // Remove obsolete page-specific stylesheets
+    if (loadPromises.length > 0) {
+      await Promise.all(loadPromises);
+    }
+  }
+
+  /**
+   * Remove obsolete page-specific stylesheets no longer needed by fetched document
+   */
+  function removeObsoleteStylesheets(fetchedDoc) {
+    const fetchedLinks = Array.from(fetchedDoc.querySelectorAll('link[rel="stylesheet"]'));
+    const currentLinks = Array.from(document.querySelectorAll('link[rel="stylesheet"]'));
+    const fetchedHrefs = fetchedLinks.map((l) => l.getAttribute('href') || '');
+
     currentLinks.forEach((link) => {
       const href = link.getAttribute('href') || '';
       const isPageSpecific = PAGE_SPECIFIC_CSS.some((cssName) => href.includes(cssName));
       if (isPageSpecific) {
-        const cssFilename = href.split('/').pop();
+        const cssFilename = href.split('?')[0].split('#')[0].split('/').pop();
         const stillNeeded = fetchedHrefs.some((fHref) => fHref.includes(cssFilename));
         if (!stillNeeded) {
           link.remove();
         }
       }
     });
+  }
+
+  /**
+   * Synchronize page-specific head stylesheets (backward compatible wrapper)
+   */
+  async function syncHeadStylesheets(fetchedDoc, signal) {
+    await loadRequiredStylesheets(fetchedDoc, signal);
+    removeObsoleteStylesheets(fetchedDoc);
   }
 
   /**
@@ -263,6 +402,13 @@
         throw new Error('No <main> tag found in fetched document.');
       }
 
+      // Ensure all required stylesheets are loaded and ready before displaying new HTML
+      await loadRequiredStylesheets(fetchedDoc, currentAbortController.signal);
+
+      if (currentAbortController.signal.aborted) {
+        return;
+      }
+
       // Save scroll position of current state before replacing
       if (history.state) {
         history.replaceState(
@@ -276,9 +422,6 @@
         document.title = fetchedDoc.title;
       }
 
-      // Sync Stylesheets
-      syncHeadStylesheets(fetchedDoc);
-
       // Swap Main Element Content & Attributes
       const currentMain = document.querySelector('main');
       if (currentMain) {
@@ -288,6 +431,9 @@
           currentMain.setAttribute(attr.name, attr.value);
         });
       }
+
+      // Remove obsolete page-specific stylesheets only after new page has rendered
+      removeObsoleteStylesheets(fetchedDoc);
 
       // Push history state if requested
       if (pushState) {
@@ -467,6 +613,9 @@
   window.Router = {
     navigate,
     resolveRoute,
+    loadRequiredStylesheets,
+    removeObsoleteStylesheets,
+    syncHeadStylesheets,
     init
   };
 })();

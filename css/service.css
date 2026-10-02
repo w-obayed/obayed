@@ -1,38 +1,6 @@
 /* --- Service Page Styles (matching index.html branding & light theme) --- */
 
 
-/* Breadcrumb Navigation */
-.service-breadcrumb {
-  background: var(--bg-color);
-  padding: 15px 0;
-  border-bottom: 1px solid #666666;
-}
-
-.service-breadcrumb .breadcrumb-list {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  color: #666666;
-  flex-wrap: wrap;
-}
-
-.service-breadcrumb a {
-  color: #1c1c1c;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.service-breadcrumb a:hover {
-  color: var(--primary-color);
-}
-
-.service-breadcrumb .active-crumb {
-  color: var(--primary-color);
-  font-weight: 700;
-}
-
 /* Service Hero Header */
 .service-hero-section {
   background: #ffffff;

@@ -1,38 +1,6 @@
 /* --- Case Study Light Theme (matching index.html branding) --- */
 
 
-/* Breadcrumb Section */
-.case-study-breadcrumb {
-  background: var(--bg-color);
-  padding: 15px 0;
-  border-bottom: 1px solid #666666;
-}
-
-.case-study-breadcrumb .breadcrumb-list {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  color: #666666;
-  flex-wrap: wrap;
-}
-
-.case-study-breadcrumb a {
-  color: #1c1c1c;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.case-study-breadcrumb a:hover {
-  color: var(--primary-color);
-}
-
-.case-study-breadcrumb .active-crumb {
-  color: var(--primary-color);
-  font-weight: 700;
-}
-
 /* Case Study Hero Section */
 .case-study-hero {
   background: #ffffff;
