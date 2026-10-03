@@ -10,22 +10,22 @@
   // Route Definitions & Clean URL Mappings
   const ROUTE_MAP = [
     {
-      clean: './index.html',
+      clean: '/',
       file: 'index.html',
       aliases: ['/', '/index', '/index.html']
     },
     {
-      clean: './service.html',
+      clean: '/service',
       file: 'service.html',
       aliases: ['/services', '/Services', '/service', '/service.html']
     },
     {
-      clean: './obayed-crm.html',
+      clean: '/obayed-crm',
       file: 'obayed-crm.html',
       aliases: ['/obayedcrm', '/obayedCRM', '/obayed-crm', '/obayed-crm.html']
     },
     {
-      clean: './white-label-whatsapp-crm.html',
+      clean: '/white-label-whatsapp-crm',
       file: 'white-label-whatsapp-crm.html',
       aliases: [
         '/white-label crm',
@@ -37,7 +37,7 @@
       ]
     },
     {
-      clean: './cold-email-work.html',
+      clean: '/cold-email-work',
       file: 'cold-email-work.html',
       aliases: [
         '/cold-email-work',
@@ -47,7 +47,7 @@
       ]
     },
     {
-      clean: './terms-of-service.html',
+      clean: '/terms-of-service',
       file: 'terms-of-service.html',
       aliases: [
         '/terms-of-service-page',
@@ -58,7 +58,7 @@
       ]
     },
     {
-      clean: './privacy-policy.html',
+      clean: '/privacy-policy',
       file: 'privacy-policy.html',
       aliases: [
         '/privacy-policy-page',
@@ -82,16 +82,47 @@
   let loadingTimer = null;
 
   /**
+   * Helper: Detect repository base path (e.g. for GitHub Pages project sites)
+   */
+  function getBasePath() {
+    if (window.location.protocol === 'file:') return '';
+    const pathname = window.location.pathname;
+    const segments = pathname.split('/').filter(Boolean);
+    if (segments.length > 0) {
+      const firstSeg = '/' + segments[0];
+      const isKnownRoute = ROUTE_MAP.some((r) =>
+        r.aliases.some((a) => {
+          const norm = a.toLowerCase();
+          return norm === firstSeg.toLowerCase() || norm === (firstSeg + '.html').toLowerCase();
+        })
+      );
+      if (!isKnownRoute && !firstSeg.endsWith('.html')) {
+        return firstSeg;
+      }
+    }
+    return '';
+  }
+
+  /**
    * Helper: Normalize pathname to route info
    */
   function matchRoute(pathname) {
     const rawPath = decodeURIComponent(pathname).toLowerCase().replace(/\/$/, '') || '/';
-    const filename = rawPath.split('/').pop() || '/';
+    const basePath = getBasePath();
+    const relativePath = (basePath && rawPath.startsWith(basePath.toLowerCase()))
+      ? (rawPath.slice(basePath.length).replace(/\/$/, '') || '/')
+      : rawPath;
+
+    const filename = relativePath.split('/').pop() || '/';
     for (const route of ROUTE_MAP) {
       for (const alias of route.aliases) {
         const normAlias = alias.toLowerCase().replace(/\/$/, '') || '/';
         const aliasFilename = normAlias.split('/').pop() || '/';
-        if (rawPath === normAlias || rawPath.endsWith('/' + aliasFilename) || filename === aliasFilename) {
+        if (
+          relativePath === normAlias ||
+          relativePath.endsWith('/' + aliasFilename) ||
+          filename === aliasFilename
+        ) {
           return route;
         }
       }
@@ -100,18 +131,51 @@
   }
 
   /**
+   * Helper: Check if current host environment supports server-side clean URLs on reload.
+   * Static dev servers (like VS Code Live Server on localhost / 127.0.0.1) and GitHub Pages
+   * do not rewrite extensionless URLs on hard reload unless configured.
+   * Cloudflare Workers / Pages and production web servers natively rewrite clean URLs.
+   */
+  function isCleanUrlSupported() {
+    if (typeof window !== 'undefined' && window.FORCE_CLEAN_URLS === true) return true;
+    if (window.location.protocol === 'file:') return false;
+    const host = window.location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1' || host.endsWith('.local') || host.endsWith('github.io')) {
+      return false;
+    }
+    return true;
+  }
+
+  /**
    * Resolve target HTML file and clean URL path
    */
   function resolveRoute(urlObj) {
     const route = matchRoute(urlObj.pathname);
     if (route) {
-      // Build clean full path
       const isFileProto = window.location.protocol === 'file:';
-      const cleanBase = isFileProto ? ('./' + route.file) : route.clean;
+      const cleanSupported = isCleanUrlSupported();
+      const basePath = getBasePath();
+
+      let cleanBase;
+      if (isFileProto || !cleanSupported) {
+        cleanBase = './' + route.file;
+      } else if (basePath) {
+        cleanBase = basePath + (route.clean === '/' ? '/' : route.clean);
+      } else {
+        cleanBase = route.clean;
+      }
+
       const fullClean = cleanBase + urlObj.search + urlObj.hash;
-      // Build target fetch URL
-      const currentDir = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
-      const fetchUrl = currentDir + route.file + urlObj.search;
+
+      let fetchUrl;
+      if (isFileProto || !cleanSupported) {
+        fetchUrl = './' + route.file + urlObj.search;
+      } else if (basePath) {
+        fetchUrl = basePath + '/' + route.file + urlObj.search;
+      } else {
+        fetchUrl = '/' + route.file + urlObj.search;
+      }
+
       return { cleanUrl: cleanBase, fullCleanUrl: fullClean, fetchUrl, file: route.file };
     }
 
