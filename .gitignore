@@ -2,5 +2,6 @@
 .wrangler
 .dev.vars*
 !.dev.vars.example
-.env*
 !.env.example
+config.bat
+node_modules
