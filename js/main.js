@@ -262,12 +262,45 @@ function initMobileMenu() {
   }
 }
 
+// Scroll Reveal Observer for subtle performant entrance animations
+function initScrollReveal() {
+  const elements = document.querySelectorAll(".reveal-on-scroll");
+  if (!elements.length) return;
+
+  const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    elements.forEach((el) => el.classList.add("is-revealed"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0.08,
+      rootMargin: "0px 0px -40px 0px",
+    }
+  );
+
+  elements.forEach((el) => {
+    observer.observe(el);
+  });
+}
+
 // Global page component initializer (called on load & client-side route transitions)
 window.initPageScripts = function () {
   initRoiCalculator();
   setEqualHeight();
   initSwiperSliders();
   initMobileMenu();
+  initScrollReveal();
 };
 
 window.addEventListener("resize", setEqualHeight);
@@ -277,3 +310,4 @@ window.addEventListener("load", setEqualHeight);
 document.addEventListener("DOMContentLoaded", () => {
   window.initPageScripts();
 });
+
